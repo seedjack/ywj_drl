@@ -1,0 +1,3882 @@
+commit 6bdff7f330a16b2ba2e967eb863c93d025f43cda
+Author: ywj <380400483@qq.com>
+Date:   Sat Apr 4 21:36:04 2020 +0800
+
+    完整版本
+
+commit 8f76f514e5df1f3db466c9343047597ecb590cc8
+Author: ywj <380400483@qq.com>
+Date:   Fri Feb 21 18:05:28 2020 +0800
+
+    存档第二篇论文，现在补做小论文实验
+
+commit c86d944a8a19249d04af8ddbf75d449e1787a861
+Merge: e79ca88 561bd17
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Nov 1 15:34:53 2019 +0900
+
+    Merge pull request #52 from yamada-github-account/Feature_cpprb_v8
+    
+    [Feature] Support new feature of cpprb #51
+
+commit 561bd175351bdfdde6d29b1ec67bd9bb4eeb845d
+Author: Yamada <>
+Date:   Wed Oct 30 05:51:07 2019 +0900
+
+    Nstep support. Related with #22
+    
+    From cpprb v7.14, Nstep ReplayBuffer is supported
+
+commit 02e1e0dfa715f77b46070cd1ef7eacedc7bae6d1
+Author: Yamada <>
+Date:   Tue Oct 29 22:38:47 2019 +0900
+
+    Support cpprb of newer than v8.0.0
+
+commit e79ca8876a104fd706464f857d574bf9eb57420c
+Merge: 2a628ce eb821d1
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed Oct 23 19:06:21 2019 +0900
+
+    Merge branch 'sac_discrete' of https://github.com/keiohta/tf2rl into sac_discrete
+
+commit 2a628cecb4bbf825d837129d92ac9314e3d7dee2
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed Oct 23 19:06:16 2019 +0900
+
+    Clean codes
+
+commit eb821d19976aca3e86bb70f4a18949b2539b095b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed Oct 23 19:04:36 2019 +0900
+
+    Fix a bug of adding weights for PER
+
+commit 52005a5e0b010405d9ddd1798c4681ae4d8334bb
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Oct 22 20:06:37 2019 +0900
+
+    Clean codes
+
+commit e0b7ac9819f32bf86f671475a4196ba5bad81fd5
+Merge: a627880 97a4f97
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Oct 22 19:47:52 2019 +0900
+
+    Merge branch 'sac_discrete'
+
+commit 97a4f97f9cc073f953538f229008c3e00d9e288a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Oct 22 19:47:32 2019 +0900
+
+    Test run_sac_discrete.py on CI
+
+commit e6f9356518b5e02c53098267f1688034f6803247
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Oct 22 19:36:05 2019 +0900
+
+    Specify gast version to prevent error in CI
+
+commit b5dd9caa9fc0e87d854f370365a1fccd464f8e5a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Oct 22 19:09:08 2019 +0900
+
+    Clean codes
+
+commit 176a35b7dedd80d603a6db957420b61f83dca004
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Oct 22 19:03:22 2019 +0900
+
+    Fix a bug of computing loss of policy
+
+commit c3d30f2253cb1c52a51de2b9ba891f180d45c8c4
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Oct 22 18:21:56 2019 +0900
+
+    Replace scale_reward with alpha even in discrete version of SAC
+
+commit 2ac3ec1839ff2348806544e93c5e70c1e5ae1cb3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Oct 22 18:13:58 2019 +0900
+
+    Replace scale_reward with alpha
+
+commit 05908d553dbc170382eab68b8f7cda9a167cca1e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Oct 22 15:11:25 2019 +0900
+
+    Fix a bug of forgetting to multiply scale_reward
+
+commit bc852f98dbfa345fd57b58133d34026cb92d8335
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Oct 22 14:09:06 2019 +0900
+
+    Use target Q funcs for Q-learning in discrete version of SAC
+
+commit 9f7f1552afe59da24d1397f45a7bb502b8faf2a9
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Oct 20 16:51:26 2019 +0900
+
+    Add SAC samples, still contains bug
+
+commit 00bf7024e1ab0ef58d706f55802853da0ccc66eb
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Oct 20 11:58:42 2019 +0900
+
+    Add SACDiscrete agent
+
+commit a62788009bf705abababb3b249ca362a26e17d83
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Oct 20 11:50:23 2019 +0900
+
+    Fix a bug of updating prioprity
+
+commit e5dd5e8a13ccb4cc531fe515bd0f418d8d1867a6
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Oct 19 17:27:51 2019 +0900
+
+    Ignore */results/*
+
+commit beb65a16607f06f3829b6f6f5da4d3987e687a9c
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Oct 19 17:27:37 2019 +0900
+
+    Return probability params when calling actor
+
+commit d8a4975dba83b489d07e459aa617492e6707f022
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Oct 1 20:05:27 2019 +0900
+
+    Compatible to tensorflow==2.0.0
+
+commit 8d5ce52b3799db8c5e6b9abe7628a81646aaa78e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Sep 23 15:49:16 2019 +0900
+
+    Fix a bug of initializing logger #48
+
+commit 78f3c120628b3e90be2e5d8d744e4f9e1efefb7c
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed Jul 17 21:29:33 2019 +0900
+
+    Update version to 0.1.2
+
+commit 7a8d62dc316d7d8c52ff45f3985cf276d7557640
+Merge: 2abfc68 733fda4
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed Jul 17 21:28:12 2019 +0900
+
+    Merge branch 'ppo'
+
+commit 733fda42232eaf76238d73eb500e888863963b3a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed Jul 17 21:26:26 2019 +0900
+
+    Update test_run_examples.sh to include PPO
+
+commit 8f30ac32a3af0c3edfcfbcf514df860f7594bd88
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed Jul 17 21:16:02 2019 +0900
+
+    Fix test for on-policy agent
+
+commit 4c55b4f5429454f7c85efcd02d80cd4b1286e519
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed Jul 17 21:10:43 2019 +0900
+
+    Clean codes
+
+commit a8876725c041568d6af7aae0d4cc64fa17b41ed9
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Jul 16 20:40:40 2019 +0900
+
+    Fix a bug of computing action in SAC
+
+commit 31cf05dc264148c652ce4b98c09b3e4aa962cd50
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Jul 16 20:40:14 2019 +0900
+
+    Remove a runner script for debug
+
+commit 55494fe38e8db2e2b9f68add4783495be241292d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Jul 16 19:45:32 2019 +0900
+
+    Fix a bug of computing log probabilities, and use state independent gaussian actor in VPG and PPO
+
+commit 497ab31f6dfa7366cfcd01d8b7dd632cca2d6434
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Jul 16 19:44:34 2019 +0900
+
+    Visualize training episode returns in TensorBoard
+
+commit cfdf2a9bbdcbd184d2fa38a7c7812098426a40d2
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Jul 16 19:42:45 2019 +0900
+
+    Update README
+
+commit 96ae2d3677125d65eabd40eae84fa2d3a9fbedee
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Jul 16 19:42:17 2019 +0900
+
+    Clean codes
+
+commit 02be820f978b8e5daed1cfbd8de88c33002ec530
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jul 15 23:15:07 2019 +0900
+
+    Enable to choose whether to use state independent log_std or not
+
+commit 5a01abb4208175ef770b2e326f2c0e5cc151d50e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jul 15 23:06:00 2019 +0900
+
+    Reduce the size of log_std for debug from 10 to 2
+
+commit 07104e52dfc3c251ff70e38c2a97166fc87f1f14
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jul 15 01:25:37 2019 +0900
+
+    Experimentally increase the maximum value of log std to 10 for debug
+
+commit a837846e6171ea92dc000f64e1642943288fabcb
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jul 15 01:15:40 2019 +0900
+
+    Experimentally replace log_std from features of neural networks with tf.Variable
+
+commit de938459a64d949eca41c57d46dc5289dc3c3c81
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jul 15 01:02:38 2019 +0900
+
+    Add debug summary and runner whose target is Pendulum
+
+commit cfe0df448c024550c18e01efec756e72b1d37075
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jul 14 08:21:31 2019 +0900
+
+    Update README.md
+
+commit 30053ee7e122dcb14e92602c1ca6d63701c4f5a9
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jul 14 08:15:52 2019 +0900
+
+    Enable to run actor-critic model that shares the feature extraction layer
+
+commit aad42964d29db3f366d2be1b8e71b6907dda2fc5
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jul 14 08:14:28 2019 +0900
+
+    Change computation of clipping operation of PPO. This might include/fix a bug
+
+commit 16d2a9d8c62cb7714cf8cd12edaaeecc3c6b108b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jul 14 08:13:25 2019 +0900
+
+    Compute entropy
+
+commit ffe6d8edd6e61bdb7c637d8683cddad242e30677
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Jul 12 17:16:37 2019 +0900
+
+    Prepare to run PPO on Atari
+
+commit 058cb465efd63f31fe46dcac8665d639edcaa807
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jul 11 22:07:24 2019 +0900
+
+    Normalize advantages in Trainer not each agent because more samples for computation enables to improve reliability of value with
+
+commit eddc57c0958a32bf0f88c9eb7e29be3eed6d3743
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jul 11 22:05:13 2019 +0900
+
+    Fix a bug of computing log prob in Gaussian policy
+
+commit 6a5a17e74f9b705e4e8abe3b1f90272386ca8fab
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jul 8 21:42:22 2019 +0900
+
+    Train actor and critic multiple times
+
+commit 2299f99d4e198b400f38c55009180a6a40f01609
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jul 8 21:23:33 2019 +0900
+
+    Clean codes
+
+commit 2abfc6869ae465e7d9af612f2d5fbebd217aabe8
+Merge: 83d2128 4535cfb
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jul 8 07:15:46 2019 +0900
+
+    Merge branch 'vail'
+
+commit 4535cfb33eb0ee11ead9df052f7f13a0309baa26
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jul 7 23:23:40 2019 +0900
+
+    Set version to 0.1.1
+
+commit 47f66500e764c38cc8fec758deb3d6ba44379aa0
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jul 7 23:10:24 2019 +0900
+
+    Add gym[atari] to test_requirements
+
+commit 52496cfa8bfc7574388d6e3a650bf8c638bb1042
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jul 7 22:58:34 2019 +0900
+
+    Add missing __init__.py in networks
+
+commit 708176b985995493cf9a921e17c30f472a36e788
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jul 7 22:43:43 2019 +0900
+
+    Fix a bug of wrong method name
+
+commit 21039410d5c236f80868565a49f6bc4ae5f0d27c
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jul 7 22:13:39 2019 +0900
+
+    Clean codes
+
+commit 216006a6457eea76225aaf2c235b628ad5046f7f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jul 7 13:03:16 2019 +0900
+
+    Change hyper parameters of DDPG GAIL and VAIL experiments
+
+commit d840aa8f16023cf59824e2c9ba94bfac37843e26
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jul 7 10:50:20 2019 +0900
+
+    Change learning rate to correspond to original paper
+
+commit f92c668936896101b5909bb469c085fc8c06bd1a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jul 7 00:01:26 2019 +0900
+
+    Visualize KL divergence in TensorBoard
+
+commit 3f109cbeb197328c844a3d9d2a6052bc00e3d778
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jul 6 22:51:03 2019 +0900
+
+    Add VAIL to supported algorithm in README
+
+commit 1262578232c030a43dce3ce9318675359fd2c3ef
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jul 6 22:45:48 2019 +0900
+
+    Add VAIL
+
+commit 83d2128e6cdf14789c59cbc4be90d4c68a505ac3
+Merge: de0f3ee 7dc5941
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Jul 5 06:33:17 2019 +0900
+
+    Merge pull request #44 from yamada-github-account/cpprb_migration
+    
+    Preparation: Ensure version of cpprb < 8.0.0
+
+commit 7dc5941a8ea040f6682db840918780cc01ff6ae5
+Author: Yamada <>
+Date:   Thu Jul 4 18:28:13 2019 +0900
+
+    Preparation: Ensure version of cpprb < 8.0.0
+    
+    cpprb is scheduled to break its api drastically in
+    v8. (cpprb.experimental -> cpprb)
+    
+    The current version of tf2rl ensures to use cpprb v7.
+    
+    After cpprb officially update to v8 and tf2rl become ready, then "<"
+    will be replaced with ">=".
+
+commit a4f60a881ee58388dcd5e015e17e0d1b0a60ac4e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 30 13:44:06 2019 +0900
+
+    Add PPO as supported algorithm to README
+
+commit de0f3eee007227d7b37b9ca8791963f977e772cf
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 30 05:37:18 2019 +0900
+
+    Add pypi badge to README
+
+commit 4762ea31828a36c935914cd8e124e9f7f246b811
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 29 23:48:55 2019 +0900
+
+    Release ver.0.1.0.
+
+commit b7cc2659460a2cb404dff7b8bbc52a304052558a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 29 23:47:58 2019 +0900
+
+    Fix a bug of not updating number of episode in on policy trainer
+
+commit cffebbd796562c114835ae85625d404566f46864
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 29 23:37:09 2019 +0900
+
+    Divide a horizon to mini batches.
+
+commit c52a33b155f0eef88803ee34e9092aaa5a7da8bb
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 29 22:32:23 2019 +0900
+
+    Add PPO agent
+
+commit c7c8ec1ccb931332fefb7df98d01c9876c105b10
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 29 20:14:09 2019 +0900
+
+    Remove unused scripts
+
+commit bf83a9cbcfeb14af5debb9163646c1fa8a493cc0
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 29 09:34:12 2019 +0900
+
+    Update README
+
+commit ce67e8c0a565fa22e16be90cbadf389a046268ae
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 29 09:31:10 2019 +0900
+
+    Fix a bug of importing discount_cumsum
+
+commit 45612c17638e2040bed2a566b880d576b3a213aa
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Jun 28 23:54:37 2019 +0900
+
+    Add references to codes
+
+commit 84a3f4f19dd42e5e0fb5e5714529c51fe2b7da11
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Jun 28 23:40:37 2019 +0900
+
+    Add CONTRIBUTING.md
+
+commit b18e5ec79fb446b79fce5209855f06c277e42b36
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Jun 28 23:40:27 2019 +0900
+
+    Update README
+
+commit 89fe93a1dcd8b4d9cc84fd982a27d52110543ddc
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Jun 28 23:39:57 2019 +0900
+
+    Clean codes
+
+commit e8fc9f223b9713d5aa278f166442fa63a3cab5b4
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 27 21:35:12 2019 +0900
+
+    Install tf2rl on CI to execute `test_run_examples.sh`
+
+commit 4f7ec642f9075540683766d03a1ebadfc43661f9
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 27 21:24:57 2019 +0900
+
+    Apply autopep8
+
+commit b2bf18bf3029f7cf7ebe88cddee8fb3a69c6ca94
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 27 21:14:27 2019 +0900
+
+    Autopep8 to examples and tests
+
+commit 3b0a9e150ee12c4d8a008d075719167ae4e9c32f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 27 21:12:00 2019 +0900
+
+    Run examples on TravisCI to check validity of scripts under examples
+
+commit eb3c9f3055e254b2da15bacc1b7823b8f99860f7
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 27 20:54:04 2019 +0900
+
+    Fix logging format in ApeX
+
+commit 8765e2fd759699b1b99142e507def1e6dff3218b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 27 20:52:17 2019 +0900
+
+    Fix logging format
+
+commit c871fb41db522af779f221de93de76c840abbdc9
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 27 20:52:05 2019 +0900
+
+    Clean TD3 code
+
+commit a57050cab657c891ef0cfc86b05c78c118307261
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 27 20:42:47 2019 +0900
+
+    Implement periodical actor update in TD3
+
+commit 17f5b8c55a58d0b075bf5dd55ac24e8cd98e1e59
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 27 08:19:23 2019 +0900
+
+    Update README
+
+commit 2fd9fbdc14b349497f73176518a50e69cd3bb526
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed Jun 26 21:11:34 2019 +0900
+
+    Fix a bug of checking whether to expand dims in DQN
+
+commit 4f670c04bf44d07beb3f0c0591daaebc1c5d9bac
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Jun 25 22:38:32 2019 +0900
+
+    Fix a bug of inputting EagerTensor to gym-like env.
+
+commit 91b8241f3c1f3b87e75592f965655c5da48a5083
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Jun 25 22:34:26 2019 +0900
+
+    Update ApeX, but still `multienv` version does not work
+
+commit 1a17f77452809592b1415585a647e59dd4d4411f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Jun 25 20:45:59 2019 +0900
+
+    Update test scripts
+
+commit 343b11242219c86b4d1e0dec582755e7531dcd0e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Jun 25 20:45:42 2019 +0900
+
+    Update README
+
+commit f27f51849b23bef9b7703fe67b416d724f1a74ca
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Jun 25 20:45:29 2019 +0900
+
+    Do not use tanh in mean and log_std computation for SAC
+
+commit 9164fd019422be3dc9951f647799066b273cfafd
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Jun 25 07:57:08 2019 +0900
+
+    Update README.md
+
+commit 295edeccf3ade545c48360b62c9c1a4004bc0b82
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Jun 25 07:55:40 2019 +0900
+
+    Update README
+
+commit 6c664397037bd3b06085b0c05fdcedf158e288fe
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 24 21:29:54 2019 +0900
+
+    Test dqn_atari in CI
+
+commit 95e9ffabc0c1b08f8af04327bf24c854b004af1e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 24 21:29:36 2019 +0900
+
+    Update README
+
+commit 7503759a8cc4c7ce6d9e633201e6956ef19348e4
+Merge: f1f6f50 4b69218
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 24 21:11:07 2019 +0900
+
+    Merge branch 'vpg' into tf2.0.0b0
+    
+    # Conflicts:
+    #	README.md
+    #	examples/run_apex_ddpg.py
+    #	examples/run_bi_res_ddpg.py
+    #	examples/run_ddpg.py
+    #	examples/run_gail_ddpg.py
+    #	examples/run_sac.py
+    #	examples/run_td3.py
+    #	setup.py
+    #	test_requirements.txt
+    #	test_run_examples.sh
+    #	tests/algos/common.py
+    #	tests/algos/test_bi_res_ddpg.py
+    #	tests/algos/test_ddpg.py
+    #	tests/algos/test_dqn.py
+    #	tests/algos/test_sac.py
+    #	tests/algos/test_td3.py
+    #	tests/misc/test_huber_loss.py
+    #	tf2rl/algos/apex.py
+    #	tf2rl/algos/ddpg.py
+    #	tf2rl/algos/dqn.py
+    #	tf2rl/algos/policy_base.py
+    #	tf2rl/algos/sac.py
+    #	tf2rl/algos/td3.py
+    #	tf2rl/envs/multi_thread_env.py
+    #	tf2rl/experiments/trainer.py
+    #	tf2rl/misc/get_replay_buffer.py
+    #	tf2rl/misc/huber_loss.py
+
+commit 4b692186e08496a16124904287ddf332434012bb
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 24 20:27:08 2019 +0900
+
+    Remove *.sh from examples
+
+commit 37c0bf2e3e1ee9f8464b3207fba5be63f5a75683
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 24 20:26:34 2019 +0900
+
+    Clean codes
+
+commit 4c76cf2c885a032ac9ad2c7d074e1f0c7a98f082
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 23 22:34:21 2019 +0900
+
+    Fix a bug of not inputting `max_action` in examples
+
+commit af3a3533c3d987bb872fd6b2cc1bdc53aeb2161e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Jun 21 23:44:56 2019 +0900
+
+    Fix a bug of not applying action bound
+
+commit 5f7aa0f9ee32cf5d9c950aacb108b91a04d171fa
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 20 20:46:28 2019 +0900
+
+    Clean codes
+
+commit f9decf2da69ad1c163d8fda4cdfe129d51e38a9c
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 20 06:43:37 2019 +0900
+
+    Update unit tests for algos
+
+commit 65e3c756190e9a79abc62bdcf9461f4aa46a333f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 17 20:53:36 2019 +0900
+
+    Fix a bug of computing actions in categorical actor
+
+commit f9a41904fddfced5c9a18e2132cbda915ba995d5
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 17 11:06:48 2019 +0900
+
+    Clean codes
+
+commit 335886bf598f0bab4e90264bd8ced762bfbd146b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 17 11:02:34 2019 +0900
+
+    Enable to disable GAE and normalizing advantages
+
+commit 14f3ece57a0dd58a5683c9d389972b5f628e2d3e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 17 09:45:24 2019 +0900
+
+    Fix std for debug
+
+commit 113a96c660d179e665f326d7417cb9ebbcff6788
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 17 09:42:44 2019 +0900
+
+    Add unit test for fixed std version of gaussian actor policy
+
+commit 75e988365269ae309a9d1b6edef5bd785fd9a210
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 17 08:26:29 2019 +0900
+
+    Add unit test for discount cumulative summation
+
+commit 0e9fb82c5939d9e4ab097be84593fed54ac790aa
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 17 06:16:58 2019 +0900
+
+    Update VPG related codes to pass unit tests
+
+commit 813b6bad542bc6571f71ea76909e8f2dc7369452
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 15 15:17:11 2019 +0900
+
+    Fix a bug of computing huber loss
+
+commit b77100ce4b293f6cefacbc5fd99714dcd61c2e78
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 15 07:38:20 2019 +0900
+
+    Use custom implemented distribution classes instead of TensorFlow Probabilities because tfp does not support multiple inputs and outputs
+
+commit e26f9dd1dbe9dc0fd71976134984b87f264db2e1
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Jun 14 09:44:58 2019 +0900
+
+    Rename finite_path to finish_path
+
+commit f483f950762e24ba7003cd1d21cb5ea38d250c76
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed Jun 12 22:55:15 2019 +0900
+
+    Fix bugs related to GPU use
+
+commit 754639b1cecefe797178e801b7bf496b84e3101f
+Merge: c876b16 c58eff3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 10 22:43:36 2019 +0900
+
+    Merge branch 'vpg' of github.com:keiohta/tf2rl into vpg
+
+commit c876b16eb65f16184b014d7cb92dbc1135664859
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 10 22:43:14 2019 +0900
+
+    Update tests for models.py
+
+commit c58eff3a880a61ec9f3343fe951c94ac3b5bfa45
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 10 21:45:54 2019 +0900
+
+    Change number of units
+
+commit af07d99ce60a48260b44172176edbe2e9e0e50d3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 10 19:35:41 2019 +0900
+
+    Make it easier to see tensorboard
+
+commit 3f79c3e6a3fc5e64740f2f4d5d7879a74b017acd
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 10 12:49:06 2019 +0900
+
+    Update README
+
+commit 65b0bfd44020700b39e921e488af266f36fc1477
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 10 12:44:12 2019 +0900
+
+    Add GAE calculation #40
+
+commit 4c3130eaeba9778ca4edf709dbc3918c13ea41ae
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 10 09:59:03 2019 +0900
+
+    Clean codes
+
+commit 46476213f6bdae9681810af58199262494b0715b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 10 09:28:30 2019 +0900
+
+    Update Gaussian and Categorical models
+
+commit f1f6f502d739557f281a9c3224b39d47ed693b4c
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 9 17:29:19 2019 +0900
+
+    Add setuptools>=41.0.0 to requirements
+
+commit 9883ea12d53d4639d53ec2f68fdb7dab156b6fe8
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 9 17:25:06 2019 +0900
+
+    Clean codes
+
+commit ba737e091c4db3f7594489e10814cf2148a7f89d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 9 03:23:09 2019 -0400
+
+    Change order of training actor critic
+
+commit e46be188ceacd491f56248bfb7965d3541ccf4f9
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 9 03:22:36 2019 -0400
+
+    Change name of summary for easy to visualize
+
+commit e5f6d7bd02c4a5990534a73189f1d7e9b5c2e5b2
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 9 03:22:02 2019 -0400
+
+    Set max_grad of huber loss to 10
+
+commit 28476e91be83d4f505867c420095c6f5f4f16d0e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 9 01:50:14 2019 -0400
+
+    Change summary names
+
+commit 42551d16a051e746bc004604b2c5bc8cbbad496e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 9 01:49:17 2019 -0400
+
+    Fix a bug of computing TD3 loss
+
+commit 2d231d61b8a678703ecc1e30507b406321b41e0f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 9 01:48:06 2019 -0400
+
+    Update on policy trainer
+
+commit 9dc4fd1a1e5afdb453a2042af34c086908630ea5
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 19:24:52 2019 -0400
+
+    Update tests
+
+commit a0a75910a4432d6ad58e3b0d889119bf28509bce
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 19:02:36 2019 -0400
+
+    Fix codes to pass test
+
+commit 368a9b76fa41c7a8350a2d3dc7950c965f1df37a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 18:39:35 2019 -0400
+
+    Update VPG test
+
+commit 34a9b1d121441c212acae2e0b09f3647fddb7024
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 18:37:30 2019 -0400
+
+    Test multiple input in get_action
+
+commit d2827416a48a6e3adbfe24f072683b1821c9d6ee
+Merge: 4d530f0 3a09a0d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 18:14:23 2019 -0400
+
+    Merge branch 'tf2.0.0b0' into vpg
+    
+    # Conflicts:
+    #	tf2rl/algos/sac.py
+
+commit 57c44a1d7e65ded9de419f18b7fe203cf1d284b1
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 18:10:10 2019 -0400
+
+    Add unit test for get_replay_buffer
+
+commit 3a09a0d52d265df17c8b2208be3b8d647a08d7b5
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 18:10:10 2019 -0400
+
+    Add unit test for get_replay_buffer
+
+commit 7cce5d45e69ba65ed1f01e1b8e6da2413ee39b5f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 17:23:32 2019 -0400
+
+    Add test for huber loss
+
+commit f40e5a360d876265b8f4dc821936df81fbed0cf7
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 17:23:32 2019 -0400
+
+    Add test for huber loss
+
+commit 2151e5ec7c25509b68349305b03325aeb5e68463
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 17:13:08 2019 -0400
+
+    Add test scripts for examples #38
+
+commit 32048f70b9c2abc96a6eb6606419b3b98809b317
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 17:13:08 2019 -0400
+
+    Add test scripts for examples #38
+
+commit 06af5c68ba6f9a7e67b31c58e346fd6c278c9a8a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 17:11:24 2019 -0400
+
+    Update unit tests
+
+commit 03766a7ab9a355fdc158917c17e022d545c7af83
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 17:11:24 2019 -0400
+
+    Update unit tests
+
+commit 75309a9a42b7a0aa6281dd65a8ad964708321e7c
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 13:59:19 2019 -0400
+
+    Add a test to verify compute_td_erro
+
+commit 332a489e60386e615271a084c88fb13a6edd350f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 13:59:19 2019 -0400
+
+    Add a test to verify compute_td_erro
+
+commit 9f174332f29b6e751cda2dbd2c4afa806d0cdd91
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 12:36:34 2019 -0400
+
+    Add `tfp_nightly` to requirements
+
+commit c07698bbdd172dc60c2d3e54c0135ed0a38ed0fe
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 12:36:34 2019 -0400
+
+    Add `tfp_nightly` to requirements
+
+commit d9fd126996752c8fa01c19f46b383e43f0f4f1ab
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 12:27:42 2019 -0400
+
+    Add DQN tests
+
+commit 15afc9b47adf22a325aec3d4729ad87093ba44ad
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 12:27:42 2019 -0400
+
+    Add DQN tests
+
+commit 07561a5db79aa83ba15e9eb045f01f74845bc21e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 10:15:57 2019 -0400
+
+    Remove tf1.x from apex
+
+commit 505576ff16a13d51cf3b65bc0e2190b664bc88dd
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 10:15:57 2019 -0400
+
+    Remove tf1.x from apex
+
+commit e542f4bda5859c652dd6e8e02824f4ffca6ff056
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 10:00:03 2019 -0400
+
+    Fix a bug of computing losses of SAC
+
+commit 11207ae7f187cb68c19a25bce86b8280fddcd81f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 10:00:03 2019 -0400
+
+    Fix a bug of computing losses of SAC
+
+commit 5c02b56473438c1645b47d375ba7043a29c25cd7
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 09:50:00 2019 -0400
+
+    Fix a bug of setting logger level
+
+commit 8ddbce1bd9f5fe450446231d9bf234648e19be8f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 8 09:50:00 2019 -0400
+
+    Fix a bug of setting logger level
+
+commit 26b496ee1a7fc3a5b5f182b71d205d1826705632
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Jun 7 22:14:31 2019 -0400
+
+    Support tf2.0.0b0 but still has bag
+
+commit c6f0046798b1295e493fbcaef22ca82eedfd8c57
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Jun 7 22:14:31 2019 -0400
+
+    Support tf2.0.0b0 but still has bag
+
+commit 6cc3a55ae0477c9b0d0d1404af8f5b021aa36a0e
+Merge: f1f2da3 f785622
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Jun 7 20:05:50 2019 -0400
+
+    Merge branch 'master' into tf2.0.0b0
+
+commit 3db0e48898117b09dcacb65666cf378b9d2606f1
+Merge: 0e64d95 f54d3c5
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Jun 7 20:05:50 2019 -0400
+
+    Merge branch 'master' into tf2.0.0b0
+
+commit f78562244436131e7dad2cee9e2e0ebdd97bcc31
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Jun 7 20:05:28 2019 -0400
+
+    Fix import order for unit tests
+
+commit f54d3c5cff8838559b423df5ed4a43aa170bc4f3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Jun 7 20:05:28 2019 -0400
+
+    Fix import order for unit tests
+
+commit f1f2da3a660bbfe4543f1f3e34786ec6ee387501
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Jun 7 19:32:41 2019 -0400
+
+    Change requirement to use tensorflow==2.0.0b0
+
+commit 0e64d95b8f3ca5cd06d3d33c508e550a3e9b6f06
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Jun 7 19:32:41 2019 -0400
+
+    Change requirement to use tensorflow==2.0.0b0
+
+commit 3b8099b2b4e9326f952dc244b638edefe9e482e7
+Merge: 1adb1c0 326d31b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Jun 7 19:29:07 2019 -0400
+
+    Merge branch 'improve_apex'
+    
+    # Conflicts:
+    #	tf2rl/algos/ddpg.py
+
+commit 09b204f2d59133c6ab3afe81a525d550005d6559
+Merge: 4fd5b86 bb104cd
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Jun 7 19:29:07 2019 -0400
+
+    Merge branch 'improve_apex'
+    
+    # Conflicts:
+    #	tf2rl/algos/ddpg.py
+
+commit 326d31b197fc8573a633885e8c1b3c3939bf804d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 6 19:12:36 2019 -0400
+
+    Enable to do ApeX for Atari
+
+commit bb104cd44ca142b21d676c9fbd856e36945415a2
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 6 19:12:36 2019 -0400
+
+    Enable to do ApeX for Atari
+
+commit 21f7d6ae4aa84bd20ab553d2e3ba92b64e7a6a28
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 6 18:55:14 2019 -0400
+
+    Make it work on dqn
+
+commit 9462185a26d73b1b2992be48a232fad58bebef7e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 6 18:55:14 2019 -0400
+
+    Make it work on dqn
+
+commit 7c54d7c5d0ac9eefa15dc3232c1b810e8ed50e0c
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 6 18:47:48 2019 -0400
+
+    Clean examples
+
+commit 30b329ee51da38cba2fff2f9446f7f10732dc2db
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 6 18:47:48 2019 -0400
+
+    Clean examples
+
+commit 78c2826401f273c9a18350c5003b71fc2c75b491
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 6 18:41:54 2019 -0400
+
+    Enable to save models
+
+commit ecfd3bf2ebd0d075e34b0b0ecf3893299304f814
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 6 18:41:54 2019 -0400
+
+    Enable to save models
+
+commit 586aafdc3a7aba73c792c26e1833785d7061c68d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 6 18:33:18 2019 -0400
+
+    Unify two different version of ApeX to one script #11
+
+commit 393b719c4f27d4a731e139c5e7b5f87434f247fe
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu Jun 6 18:33:18 2019 -0400
+
+    Unify two different version of ApeX to one script #11
+
+commit aeda148ca874e8909cce615f3efa9af8fda37038
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed Jun 5 22:46:59 2019 -0400
+
+    Force to use latest weights in evaluation of multi thread env version of apex
+
+commit 7e2ff9763ef256dc2476443e56df084cad68ef8a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed Jun 5 22:46:59 2019 -0400
+
+    Force to use latest weights in evaluation of multi thread env version of apex
+
+commit c5b2952cf2abeabbec00afbc9f4e9f8b5dfae2b6
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed Jun 5 22:16:05 2019 -0400
+
+    Use experimental replay buffer in ApeX
+
+commit 8c5c867836b6da862da3c09f5829dbd6245f2659
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed Jun 5 22:16:05 2019 -0400
+
+    Use experimental replay buffer in ApeX
+
+commit a0c9d20c2c36810254c4ce0115385a8bb4e76721
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Jun 4 20:22:41 2019 -0400
+
+    Use huber loss #39
+
+commit da15aaea35b4d4f1f7b9454d422ec99f1fb41403
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Jun 4 20:22:41 2019 -0400
+
+    Use huber loss #39
+
+commit 47d21f296c565a83eb995943a0fa60033b518420
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Jun 4 20:20:58 2019 -0400
+
+    Replace float64 with float32
+
+commit 8ba726dde4110abdb28e8ceafc5e7d2c6f56fc18
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue Jun 4 20:20:58 2019 -0400
+
+    Replace float64 with float32
+
+commit faaa7c3aa44d6450cfe90e5e52fe15745ab7ef54
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 3 17:59:38 2019 -0400
+
+    Update tests
+
+commit 6ef6dd39c09be4f440b62ea7576b47f753026251
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 3 17:59:38 2019 -0400
+
+    Update tests
+
+commit 5f2825ca5ead705e0f67df41e025c5b02f4d7de4
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 3 08:03:12 2019 -0400
+
+    Use common class objects for unit test
+
+commit 9bfad66c88d0a81fca05ee11ee543211ee08ff3a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 3 08:03:12 2019 -0400
+
+    Use common class objects for unit test
+
+commit 6198da7ddba10346584fbd54ac2a6c180d978ed5
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 3 07:56:08 2019 -0400
+
+    Try to resolve import error of common class
+
+commit f14fcd4c60c83cc25b0150481f8a3d10d96fefc8
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 3 07:56:08 2019 -0400
+
+    Try to resolve import error of common class
+
+commit a52d2809f0f7a303e56e82e216277a31c61af6bf
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 3 07:12:51 2019 -0400
+
+    Clean codes and add missing library
+
+commit 104decdff6cdcdb5452cb0af02fb1f100c80f278
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon Jun 3 07:12:51 2019 -0400
+
+    Clean codes and add missing library
+
+commit c3ce469028d43c67b59dd1cb7d39880d717f40b1
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 2 19:05:44 2019 -0400
+
+    Try to resolve import error in tests/algos
+
+commit b0815c1c1779d403638f95ffdebc407ffb774e1f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 2 19:05:44 2019 -0400
+
+    Try to resolve import error in tests/algos
+
+commit d62628af389fb397cc2e14698014ea527942582f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 2 18:01:47 2019 -0400
+
+    Experimentally add common class for tests of algos
+
+commit c38b279c5458367880fab14fe993f8d51fc86226
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 2 18:01:47 2019 -0400
+
+    Experimentally add common class for tests of algos
+
+commit 681cc5f59286c6b419ce2a718a665356c0bea0eb
+Merge: b5714e3 495d828
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 2 17:50:43 2019 -0400
+
+    Merge branch 'atari' into improve_apex
+
+commit 31d1ba71e988e4300a72b17cef75122f247a3a22
+Merge: c14c8f9 429f858
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 2 17:50:43 2019 -0400
+
+    Merge branch 'atari' into improve_apex
+
+commit 1adb1c02d1b1f6f32b245f2911f8aead4090b453
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 2 17:46:24 2019 -0400
+
+    Update README.md
+    
+    Fix path to coverage url
+
+commit 4fd5b86d74ccbae47a534f0eff457df36755adce
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 2 17:46:24 2019 -0400
+
+    Update README.md
+    
+    Fix path to coverage url
+
+commit 63bcf348da2c72cb026109cdedce169bf94fe512
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 2 17:39:18 2019 -0400
+
+    Add GAIL-SN to supported algorithms
+
+commit 02af8163f82507409109af327ac25f8522ff3bd7
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 2 17:39:18 2019 -0400
+
+    Add GAIL-SN to supported algorithms
+
+commit deeb60df2280213dc826c02b338619dd84fd4e61
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 2 17:30:06 2019 -0400
+
+    Update tests for GAIL and Spectral Normalization
+
+commit ee91dc592d87d0d48bea60d4b058c595f5ec34fe
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Jun 2 17:30:06 2019 -0400
+
+    Update tests for GAIL and Spectral Normalization
+
+commit 495d8282d2c3e8d4e569c9ac6ac5c4db5d9283b2
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 1 17:27:46 2019 -0400
+
+    Enable to save frames in evaluation #30
+
+commit 429f858f59efc6afc66df8d8e791a0346fc5a6bd
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 1 17:27:46 2019 -0400
+
+    Enable to save frames in evaluation #30
+
+commit 370260f43dcb24d72cc6cc9cf70798aafe08b8f9
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 1 17:26:26 2019 -0400
+
+    Implement Spectral Normalization #18 Not finished writing test yet
+
+commit ef4fe0e8b53a81778f014845576411bd7a7873a3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 1 17:26:26 2019 -0400
+
+    Implement Spectral Normalization #18 Not finished writing test yet
+
+commit be95dc109693a8e1be2cb2d86ce56569d5ceb460
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 1 17:25:03 2019 -0400
+
+    Replace float64 with float32
+
+commit f839885b72103b553ebbdc61d266ca6026bc0882
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 1 17:25:03 2019 -0400
+
+    Replace float64 with float32
+
+commit a0cff0f93b0d65fe1537e4ed9889e5a8c1d8534d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 1 17:22:01 2019 -0400
+
+    Fix runner for DQN experiments
+
+commit 8a48f20d644090afa19032f62edfa1e7028edb04
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Jun 1 17:22:01 2019 -0400
+
+    Fix runner for DQN experiments
+
+commit 4d530f0e7126dfebe2cd1b6bf4dfe29a6537208d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 31 17:57:33 2019 -0400
+
+    Update VPG
+
+commit 07e59d8e9059b761899bbbb6a9ddd324511ca5a7
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 31 16:55:34 2019 -0400
+
+    Update README.md
+    
+    Add a badge that shows number of open issues
+
+commit 6557e3ab5471b518f1593983bd65f655edd35790
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 31 16:55:34 2019 -0400
+
+    Update README.md
+    
+    Add a badge that shows number of open issues
+
+commit 9e1d5587126c249bd662fbe20eb583708e697138
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 30 21:22:09 2019 -0400
+
+    Update VPG
+
+commit 137a15f6e565c71b29f228f50f7cfddcfcf3b885
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 30 21:21:40 2019 -0400
+
+    Replace float64 with float32
+
+commit 1f0aa31898a117ce9258ace5c5b663582c850206
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 30 18:01:39 2019 -0400
+
+    Update scripts to train DQN
+
+commit a62f3964289fdd31466ad16ef9ea070bbb79439d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 30 18:01:39 2019 -0400
+
+    Update scripts to train DQN
+
+commit f9bc0c44d75ff3cccd660d2b5b19fdb094825a69
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 30 17:49:06 2019 -0400
+
+    Temporarily remove `next_of` from arguments of replay buffer because cpprb has bug
+
+commit 66ab4b35900cfe70bf880f49bed7accd57c3c61f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 30 17:49:06 2019 -0400
+
+    Temporarily remove `next_of` from arguments of replay buffer because cpprb has bug
+
+commit 19d9ef767236b7aae49d4216c111a5f41c8b8bb2
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 29 18:42:40 2019 -0400
+
+    Fix examples and clean code
+
+commit 643a91186dc8d898bde380379bd8d4faa2db3c0d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 29 18:42:40 2019 -0400
+
+    Fix examples and clean code
+
+commit a8df47a8a40168a98bf360e212a32ec578d33e9e
+Author: Kei Ohta <ohta@cv0.cm.cluster>
+Date:   Wed May 29 18:28:22 2019 -0400
+
+    Fix script to run DQN variants
+
+commit e5bb135b215a6974b92b82322422bb6785bba8b4
+Author: Kei Ohta <ohta@cv0.cm.cluster>
+Date:   Wed May 29 18:28:22 2019 -0400
+
+    Fix script to run DQN variants
+
+commit 5b455ec97ea90a8a02261b0fd32e129f938bfa13
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 29 18:25:00 2019 -0400
+
+    Add a script to test dqn variants all at once
+
+commit 040dc34f521bc6df64df9455c93e913ea7c6cd71
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 29 18:25:00 2019 -0400
+
+    Add a script to test dqn variants all at once
+
+commit 545af3500348ffd0013dc7fd26a041766ca9c503
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 29 18:24:38 2019 -0400
+
+    Remove categorical DQN and enable to call it from dqn.py
+
+commit 955d53c657a68871f20f5faacf2d5bd588ce488e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 29 18:24:38 2019 -0400
+
+    Remove categorical DQN and enable to call it from dqn.py
+
+commit 59103b05ec8b05abba830fa74e9083792b29b4cd
+Merge: 39c1d9a 66ee19b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 29 18:15:41 2019 -0400
+
+    Merge branch 'atari' of github.com:keiohta/tf2rl into atari
+
+commit 9d145fd4430c9f1d2eb5a4a9d70d6a1583744d6f
+Merge: 53c8d1b be81bd6
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 29 18:15:41 2019 -0400
+
+    Merge branch 'atari' of github.com:keiohta/tf2rl into atari
+
+commit 39c1d9a4ddd0364a5b6742307a2a32d4dd88ca85
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 29 17:51:19 2019 -0400
+
+    Fix a bug of computing noisy dense layer
+
+commit 53c8d1bfb1095b88f4b6d4774cddeeec219c7eed
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 29 17:51:19 2019 -0400
+
+    Fix a bug of computing noisy dense layer
+
+commit 66ee19b71f145bda2274bd80e86703596e112ffa
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 29 17:51:19 2019 -0400
+
+    Fix a bug of computing noisy dense layer
+
+commit be81bd6e8e4ef9d64434830c739b4d3bf0d97614
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 29 17:51:19 2019 -0400
+
+    Fix a bug of computing noisy dense layer
+
+commit deb28d3cf6474c1c6dff39a90f5ee9bec8404412
+Merge: 951195f 7223568
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 29 07:38:04 2019 -0400
+
+    Merge branch 'master' into vpg
+    
+    # Conflicts:
+    #	tf2rl/algos/sac.py
+
+commit 50170e932ac7b05ceb2f076b24b0c0532cb1902a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 29 07:35:35 2019 -0400
+
+    Update .gitignore
+
+commit 7223568113f6498e3ff655f3de4192e590bc9959
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 29 07:35:35 2019 -0400
+
+    Update .gitignore
+
+commit 48912e9f75c52cb04213fcab875ef6fbd13e64bc
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 29 07:04:31 2019 -0400
+
+    Visualize input images to neural networks of last steps of an episode #28
+
+commit fb8dbf86cf138ff07ad3c2383af2adbc1d79269e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 29 07:04:31 2019 -0400
+
+    Visualize input images to neural networks of last steps of an episode #28
+
+commit fd6f0510608892746c3d265bd5ff3edb39ba3e52
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 29 06:59:05 2019 -0400
+
+    Clean code
+
+commit 6bc8043c952d1a0df4b98f5f129dc07656ccf743
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 29 06:59:05 2019 -0400
+
+    Clean code
+
+commit d58d7170164d9b18d2826d3db9ba5896bc9b33df
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 28 19:49:24 2019 -0400
+
+    Fix wrong import
+
+commit 2f5b280dfb9c0812fcabb885bd1a12414b6d3c11
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 28 19:49:24 2019 -0400
+
+    Fix wrong import
+
+commit 03c3685d535c64aefd249b48641f12f87d874388
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 28 19:45:32 2019 -0400
+
+    Fix a bug of setting epsilon
+
+commit 353923f0eb4000618f78aafc9e3136037e553053
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 28 19:45:32 2019 -0400
+
+    Fix a bug of setting epsilon
+
+commit 8dd3a9e32c5c86f559a03cf12f30ab8eb908a97e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 28 18:18:42 2019 -0400
+
+    Fix tests
+
+commit 9a3b365d18facd6d32826b302647df28c54efee8
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 28 18:18:42 2019 -0400
+
+    Fix tests
+
+commit 188f705079684177be46f94a5a48ecc6f1f7d0cd
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 28 18:02:12 2019 -0400
+
+    Fix a bug of computing action of categorical dqn
+
+commit ad47b09fa71167f30f850e0e7266b01b21e58480
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 28 18:02:12 2019 -0400
+
+    Fix a bug of computing action of categorical dqn
+
+commit a308669a790111d4578a9ffa4258f171ec20eb75
+Merge: cf01977 6fd30f4
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 28 17:40:41 2019 -0400
+
+    Merge branch 'master' into atari
+    
+    # Conflicts:
+    #	examples/run_categorical_dqn.py
+    #	examples/run_dqn_atari.py
+    #	setup.py
+    #	tests/algos/test_dqn.py
+    #	tf2rl/algos/apex.py
+    #	tf2rl/algos/ddpg.py
+    #	tf2rl/algos/dqn.py
+    #	tf2rl/misc/get_replay_buffer.py
+
+commit b96ecf4f837fc62087e79dc44a1f973315d45c64
+Merge: c9275c8 fa81e98
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 28 17:40:41 2019 -0400
+
+    Merge branch 'master' into atari
+    
+    # Conflicts:
+    #	examples/run_categorical_dqn.py
+    #	examples/run_dqn_atari.py
+    #	setup.py
+    #	tests/algos/test_dqn.py
+    #	tf2rl/algos/apex.py
+    #	tf2rl/algos/ddpg.py
+    #	tf2rl/algos/dqn.py
+    #	tf2rl/misc/get_replay_buffer.py
+
+commit cf01977963752df9dbe26e8a4a7b3972dd773f0c
+Merge: 123b96a 5b6b058
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 28 17:16:15 2019 -0400
+
+    Merge branch 'atari' of github.com:keiohta/tf2rl into atari
+
+commit c9275c82eacc249edcedef09680437454861b1e4
+Merge: 1959594 6290db5
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 28 17:16:15 2019 -0400
+
+    Merge branch 'atari' of github.com:keiohta/tf2rl into atari
+
+commit 123b96aa301a8723420b7681a7722c89cc84c8d6
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 28 17:15:38 2019 -0400
+
+    Fix a bug that categorical dqn was not actually called even specified with command line argument
+
+commit 195959406e46b0a36e151ac65a4796239a9beb00
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 28 17:15:38 2019 -0400
+
+    Fix a bug that categorical dqn was not actually called even specified with command line argument
+
+commit 6fd30f422c17fb7705f289fbc12a48a5ebd8aac3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 28 07:12:24 2019 -0400
+
+    Update algorithms table
+
+commit fa81e9867348fe2ffa18cfd29ff21ad97e5b7118
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 28 07:12:24 2019 -0400
+
+    Update algorithms table
+
+commit 0d3035a38728ddbf6c0498f821bcae9f1df38467
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 20:57:10 2019 -0400
+
+    Update README. Resolve #25
+
+commit 3800948927717c6c455f17500cc795c68eb8eb63
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 20:57:10 2019 -0400
+
+    Update README. Resolve #25
+
+commit 240544799364e6de56839c57dd6b9881cb093a92
+Merge: 5698317 0a250f2
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 20:37:47 2019 -0400
+
+    Merge branch 'measure_trainer_time'
+
+commit b9a4fd14743aa6566075254643f6d4a0b42b1e25
+Merge: f2c419f 0bffef8
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 20:37:47 2019 -0400
+
+    Merge branch 'measure_trainer_time'
+
+commit 0a250f224b7ff03e6ddd057e9675e62fec30f74b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 20:37:33 2019 -0400
+
+    Remove a profiling script
+
+commit 0bffef82a7c60e63b9fc3f1156098631c5b2557c
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 20:37:33 2019 -0400
+
+    Remove a profiling script
+
+commit c03aa1a1becf8ccb38f5210591f641764dfe03d4
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 20:34:15 2019 -0400
+
+    Remove tensorflow operation regarding with total steps in trainer. Use int variable instead #26
+
+commit e3d42f7c041a466f99651e0d0d783dc8805057dd
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 20:34:15 2019 -0400
+
+    Remove tensorflow operation regarding with total steps in trainer. Use int variable instead #26
+
+commit 5698317ad3b0ed878eeb1b42c287a47e99aab0dd
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 20:26:33 2019 -0400
+
+    Update .gitignore
+
+commit f2c419fc230558ab7483c0a5b8f54cfde49be895
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 20:26:33 2019 -0400
+
+    Update .gitignore
+
+commit 972e7bab37944dd7e352e547b298e76e0d2201b7
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 19:07:05 2019 -0400
+
+    Add MIT license badge to README
+
+commit 2b15d2430e3fe20144b8eb52a70cf18e1a2c9f06
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 19:07:05 2019 -0400
+
+    Add MIT license badge to README
+
+commit d0a36b792a12579f086eb857a3c3acbc63c81db6
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 19:06:51 2019 -0400
+
+    Fix coverage
+
+commit 6a3d9e622ea55673f53b38701fd9c15645c78c29
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 19:06:51 2019 -0400
+
+    Fix coverage
+
+commit b5714e3b2a8dd89631398a3865082e7cb8447b39
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 18:17:14 2019 -0400
+
+    Enable to specify GPU device for explorer, learner, evaluator
+
+commit c14c8f939bb4054162ea36ba74a4f109c68e53c3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 18:17:14 2019 -0400
+
+    Enable to specify GPU device for explorer, learner, evaluator
+
+commit a3c857a8429e21d27029dddcde4d784299ceff75
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 17:52:20 2019 -0400
+
+    Fix a bug of invalid argument to ApeX
+
+commit 1c26ca646ffd59bdea97689d8d7b8e70b0da9a9a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 17:52:20 2019 -0400
+
+    Fix a bug of invalid argument to ApeX
+
+commit 0299afdf18be71ce4c9b6514199e29667e3f937d
+Merge: f6e938a a4ca2ff
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 17:06:30 2019 -0400
+
+    Merge branch 'apex'
+
+commit 1893244994acdb3253f5412d82748253cbe74640
+Merge: a240edd 3aa3dea
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 17:06:30 2019 -0400
+
+    Merge branch 'apex'
+
+commit a4ca2ff08a89a88735891cffbdde0b241787daa0
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 17:04:56 2019 -0400
+
+    ver.0.0.3
+
+commit 3aa3deabd18e5024fbbdcd03b38ea9d4bedf1a77
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 17:04:56 2019 -0400
+
+    ver.0.0.3
+
+commit 88b27794c017d66f84a22363566ea861706f9e3e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 17:04:13 2019 -0400
+
+    Add test for ApeX
+
+commit 1c73e23cd01947a1801251d52154dbc128cf95cd
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 17:04:13 2019 -0400
+
+    Add test for ApeX
+
+commit 77b11416b4f1edc972d8590d4b89dd09e054b1be
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 17:03:54 2019 -0400
+
+    Fix a bug that multiprocessing never terminates because of queues
+
+commit 9b30c998460f23573a3a5e00ccb7a712d0969eaf
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 17:03:54 2019 -0400
+
+    Fix a bug that multiprocessing never terminates because of queues
+
+commit dfc0c106a37866b87e8341a89ced9bf617ad7c39
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 16:07:15 2019 -0400
+
+    Add multi thread environment sample using DQN
+
+commit c16f1aff07a7559ac667f018233be8568e47d06c
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 16:07:15 2019 -0400
+
+    Add multi thread environment sample using DQN
+
+commit 6f7cbb37455cb0e8d1f2623ab5767d69510dc14b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 16:01:35 2019 -0400
+
+    Clean codes
+
+commit 48b860d9561ad0d1fac51a82a8747dba89609895
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 16:01:35 2019 -0400
+
+    Clean codes
+
+commit c12dfcc817f8c0366d17e47e5e1019160379bf22
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 15:26:08 2019 -0400
+
+    Enable to add priorities when putting samples to replay buffer
+
+commit 0e90acf4dbaabe0e583ee4b205bdaf03b4c328d8
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 15:26:08 2019 -0400
+
+    Enable to add priorities when putting samples to replay buffer
+
+commit be1c10a74f78cb4af671b5e39d88e5f39a6529d3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 15:25:18 2019 -0400
+
+    Visualize test result for ApeX #11
+
+commit d16d5347869aa52ef3a458c11bdd534a409aa10c
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 15:25:18 2019 -0400
+
+    Visualize test result for ApeX #11
+
+commit cea8896c5ec534cb759f46354cd0f189a3a2ea16
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 15:23:31 2019 -0400
+
+    Remove unused codes
+
+commit aee01a08730e59c67bd4898bd04562e93f36962f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 15:23:31 2019 -0400
+
+    Remove unused codes
+
+commit 5b6b0587cbb743fe62e2e8dfa4bb0b37d5549987
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 13:55:05 2019 -0400
+
+    Change hyper parameters
+
+commit 6290db570bd02f718695ecf45baf6854f751e176
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 13:55:05 2019 -0400
+
+    Change hyper parameters
+
+commit 431c95b01ae3e67fd68aa11316ffd6c5a69da7b9
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 13:51:54 2019 -0400
+
+    Remove reward clipping from test env #31
+
+commit f487cb5cabe49538fce65211dca75720aa09810b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 13:51:54 2019 -0400
+
+    Remove reward clipping from test env #31
+
+commit 12cc290492e7ac51cde6949500ba2f08b79c58fc
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 10:19:05 2019 -0400
+
+    Fix a bug of adding to and sampling from buffer
+
+commit a833aa41db213dc57b9129f680b842a697638817
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 10:19:05 2019 -0400
+
+    Fix a bug of adding to and sampling from buffer
+
+commit 961bd237fc350320a25ed87cee6f85225bd38c98
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 10:18:19 2019 -0400
+
+    Fix handling done in multi thread env
+
+commit 3329e29a36201f556b3479a3e235f7a6484d1221
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 27 10:18:19 2019 -0400
+
+    Fix handling done in multi thread env
+
+commit b82451b4660cf413678e37d374470ce3f6aef4d2
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 21:39:29 2019 -0400
+
+    Fix a bug of td error dimentionality
+
+commit c82088e8fcd43a7a9667e146c97f52d80d27b512
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 21:39:29 2019 -0400
+
+    Fix a bug of td error dimentionality
+
+commit 8d53a23044fc76bca9de6a4d3132f903b5996d8b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 21:38:56 2019 -0400
+
+    Add util function to get action dimention
+
+commit 782ce6c3382849a8bc6fa84365f59e3e705150fa
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 21:38:56 2019 -0400
+
+    Add util function to get action dimention
+
+commit 561da95cd6314609bb19612c15c8c167b985cfd2
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 21:38:06 2019 -0400
+
+    Remove noise because multi thread env version of ApeX cannot change noise level
+
+commit 0d14a6b978f7d74b496e5050a5d94933eb5f47e3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 21:38:06 2019 -0400
+
+    Remove noise because multi thread env version of ApeX cannot change noise level
+
+commit bee506b78ab22b9c010d4721d147fef130627092
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 20:08:35 2019 -0400
+
+    Add test case for discrete env for multi thread env
+
+commit 304204a1925a75936f15779329aa137d3a78850c
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 20:08:35 2019 -0400
+
+    Add test case for discrete env for multi thread env
+
+commit e74a411fe38f8e4b47d6a3517a46fba8fdb92efa
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 19:40:30 2019 -0400
+
+    Add multi thread env version of ApeX #27
+
+commit be283bab9ff82ed86d2ea5e4f3781c2008615a78
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 19:40:30 2019 -0400
+
+    Add multi thread env version of ApeX #27
+
+commit 41fb93dbdc63187dba2aa0db1f5e967799437bdc
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 19:39:16 2019 -0400
+
+    Use tf.graph as much as possible for acceleration
+
+commit 4a5fd74a39dd8eb9d576612c5fca8e23ad3b92d6
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 19:39:16 2019 -0400
+
+    Use tf.graph as much as possible for acceleration
+
+commit f6e938ac6421b7b5d671a18693a44442ed693491
+Merge: 8f0b8a6 633162f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 14:28:50 2019 -0400
+
+    Merge branch 'apex'
+
+commit a240edd8814bd88dac59045b43d966e12d4eb06a
+Merge: 5efb4f8 a405175
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 14:28:50 2019 -0400
+
+    Merge branch 'apex'
+
+commit 8f0b8a61913b9ec350c8206f76777b1edbc574fb
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 14:27:37 2019 -0400
+
+    Add suffix to result folder. Resolve #29
+
+commit 5efb4f894184f98f157d95ce80cbc64d8dd66161
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 14:27:37 2019 -0400
+
+    Add suffix to result folder. Resolve #29
+
+commit 56ef97946e8c7290fe54b7949593d4e6efc7b58b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 14:14:32 2019 -0400
+
+    Use default type of cpprb to clean code
+
+commit ada2f71892879d7d0373e8280538279af727c3d3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 14:14:32 2019 -0400
+
+    Use default type of cpprb to clean code
+
+commit a1057f27ce582a2445898b50f1f4568c8a8752d1
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 06:35:02 2019 -0400
+
+    Specify cpprb version
+
+commit 358f2f06a96a728ccc4ccd622fc4600630d0bda6
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 26 06:35:02 2019 -0400
+
+    Specify cpprb version
+
+commit cff2d42ae73b7ddaa050853b3359a78ada06929a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 17:25:50 2019 -0400
+
+    Add scripts to measure main loop time
+
+commit 3c6a3de1bfe9e67821e4692bf889f8873b440581
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 17:25:50 2019 -0400
+
+    Add scripts to measure main loop time
+
+commit b23c8fd793a071a8b238ccc92282fb9f355dc877
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 02:13:17 2019 -0400
+
+    Add Coverage badge
+
+commit faa327723a83378342ddea735419359c2ca93db2
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 02:13:17 2019 -0400
+
+    Add Coverage badge
+
+commit 2123228ed4fc0a7f27189ca0d237d939e5855da2
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 02:05:37 2019 -0400
+
+    Add test to setup.py and apply change to .travis.yml. Add coverage badge info to .travis.yml
+
+commit d4cf0ae3b78e410f7c8430ba2c8ea4e3f651ab8a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 02:05:37 2019 -0400
+
+    Add test to setup.py and apply change to .travis.yml. Add coverage badge info to .travis.yml
+
+commit 09c4667ead065157f780714239d4f3cfabcfa571
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 02:00:02 2019 -0400
+
+    Change TF and python version
+
+commit 6afc74c0c426a85a47a4b981ca8f9d32b63c6182
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 02:00:02 2019 -0400
+
+    Change TF and python version
+
+commit 3e82838133f0b77723a1b4e3a7012713671d281b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:53:35 2019 -0400
+
+    Add opencv-python to dependency
+
+commit 38086044ed29882d0f03ac432efe21b63fc616bb
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:53:35 2019 -0400
+
+    Add opencv-python to dependency
+
+commit 1f6e58328794ccb3b9459c43c12288a3e02e0c42
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:48:15 2019 -0400
+
+    Change tensorflow version to 1.13.1
+
+commit 824306ce5cba1bbe3120fda5b4b86dfbb683114b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:48:15 2019 -0400
+
+    Change tensorflow version to 1.13.1
+
+commit f284855bff9d720c608f448f8006fcc26ffa58fc
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:44:20 2019 -0400
+
+    Change tensorflow version for test
+
+commit 97fabaaa17e03d8f03b6654afe67496032a21c7e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:44:20 2019 -0400
+
+    Change tensorflow version for test
+
+commit fe30b94dbebff7132a2938b94911b4572217ec1f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:41:21 2019 -0400
+
+    Fix typo
+
+commit 98cd88261e70f03cd975b9adef41b77ee5ee2327
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:41:21 2019 -0400
+
+    Fix typo
+
+commit 9e92a2a6fe7c2fb0e37ca63097e098543d6a4cb1
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:35:25 2019 -0400
+
+    Write requirements to test_requirements.txt
+
+commit c8b7a81540b6256c5ac75e82c6958635082521da
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:35:25 2019 -0400
+
+    Write requirements to test_requirements.txt
+
+commit 34cc69b2281e12624fd465d812d6b62251e9c508
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:24:06 2019 -0400
+
+    Change scripts sequence so that cpprb will be installed after gcc installation
+
+commit a9a4330a1ccb1ff790a69e6c24e8f8a18ddde8e1
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:24:06 2019 -0400
+
+    Change scripts sequence so that cpprb will be installed after gcc installation
+
+commit 3980f968d10211dc63337228dc8f8bf4ffc1deb2
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:20:35 2019 -0400
+
+    Fix installation part in CI setting
+
+commit 32ee90cb1de5443badf06ec7cb4d4a56a51afd11
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:20:35 2019 -0400
+
+    Fix installation part in CI setting
+
+commit 49f0c784252a8d0e5f98a31373f446995d6be7e3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:18:27 2019 -0400
+
+    Change CI setting
+
+commit 245dd35d72265811a516b23d4b742f3da37b44f1
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:18:27 2019 -0400
+
+    Change CI setting
+
+commit 08a32d01b1968d00374d1ee804cff1f4c1eb7981
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:12:08 2019 -0400
+
+    Fix typo
+
+commit f03ef3cd288575cdc15cb7e76daceb0a35b5cc34
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:12:08 2019 -0400
+
+    Fix typo
+
+commit 65cf94e8729ffae2b5922945dd008b79e8bd32bf
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:09:17 2019 -0400
+
+    Specify gcc-7.2
+
+commit 91d91cdec45fba98fd2fa8078fa92e42aa4e0ad9
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 01:09:17 2019 -0400
+
+    Specify gcc-7.2
+
+commit 038ce398f5fcd4467f3b513503c3b80f1e4c5e9d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 00:56:51 2019 -0400
+
+    Fix a bug of DQN test
+
+commit 09223c8989b68f1915195396c1ceab758aaf30d8
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 00:56:51 2019 -0400
+
+    Fix a bug of DQN test
+
+commit 2f863e1bc2a55aaf75eee43530e70cbe70cb0404
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 00:41:00 2019 -0400
+
+    Add gym to dependency
+
+commit 6549bae9e96bbd26ce6b0789eda3531bdfc63fba
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 00:41:00 2019 -0400
+
+    Add gym to dependency
+
+commit 5c4e55e988408e50eb8e0297bc3fc2775b3924c3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 00:38:51 2019 -0400
+
+    Change CI setting
+
+commit ddb78af91744571ceac8de4b9b9d43c49bcd92fc
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 00:38:51 2019 -0400
+
+    Change CI setting
+
+commit b88559326d0c01b2b29522bc1d88c4920c750866
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 00:36:51 2019 -0400
+
+    Show build status in README
+
+commit 5d63dab1f7c4f4846b90e3c07cd29b3df2350586
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 00:36:51 2019 -0400
+
+    Show build status in README
+
+commit df55830a68b65da0010de71cdddcad9509a01e4d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 00:32:00 2019 -0400
+
+    Add .travis_ci.yml and related scripts for CI
+
+commit 4305bd3fa16c8c48cd6c510fe3f9dcf819ccf2c2
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 00:32:00 2019 -0400
+
+    Add .travis_ci.yml and related scripts for CI
+
+commit 951195ff00bf398d1b0ee3d5122cf49313d5ab4d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 25 00:18:49 2019 -0400
+
+    Set n_wamup = 0 for on policy agent
+
+commit 633162ffd072e3ad09140600e8d6cd313d36cd05
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 19:49:49 2019 -0400
+
+    Set hyper parameters as original paper
+
+commit a405175ee7710f33468970ada8c513edad97187e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 19:49:49 2019 -0400
+
+    Set hyper parameters as original paper
+
+commit 8602e7ab61793a623bddae68a2aff103777c286a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 19:49:30 2019 -0400
+
+    Enable flexible get/set variables
+
+commit 8b1a9891396f90e8f35253dd7ad8b763af03ff91
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 19:49:30 2019 -0400
+
+    Enable flexible get/set variables
+
+commit 269552b845bd89cf49f33521bd36cf89199d59be
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 19:39:35 2019 -0400
+
+    Remove unused key from get_replay_buffer
+
+commit 98b051521fc3057e8cc54ba95094e132e1df9da7
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 19:39:35 2019 -0400
+
+    Remove unused key from get_replay_buffer
+
+commit 0e16242d3044888de600a581ea05e31be4713542
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 19:35:58 2019 -0400
+
+    Add VPG test
+
+commit 3b2b49c332e3dfef557fa9cdf8af79ef55ef24f1
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 01:32:00 2019 -0400
+
+    Change maximum exploration step
+
+commit f7851b941182422892b0104f35979df014159a92
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 01:32:00 2019 -0400
+
+    Change maximum exploration step
+
+commit b06ee70b655db79dba902d6e880d6b3303a4074a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 01:24:24 2019 -0400
+
+    Change atari wrapper to comply with Nature DQN paper
+
+commit a428080ee27b4111865794a2256a0a9611fa7e4f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 01:24:24 2019 -0400
+
+    Change atari wrapper to comply with Nature DQN paper
+
+commit 5c403b654cefa02fbd1d913f139bd0b809168388
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 01:15:01 2019 -0400
+
+    Comple with PEP8
+
+commit 8671132fa5d9235250b73448fa7e290daaf99ff9
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 01:15:01 2019 -0400
+
+    Comple with PEP8
+
+commit 0c7eb4811a06d66f8a649ebe1b62beec179ddc2b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 00:28:51 2019 -0400
+
+    Schedule epsilon for exploration. This resolves #7
+
+commit ecaaf0135b7f0be669b8e9d5ed40357de9cde754
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 00:28:51 2019 -0400
+
+    Schedule epsilon for exploration. This resolves #7
+
+commit 8f7a359dd42707f0ae631ef04640d44a0920f5ef
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 00:10:26 2019 -0400
+
+    Enable to change env name from command line
+
+commit 1234a0e8088f3b0a04c9c2f099547b877bace08a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 00:10:26 2019 -0400
+
+    Enable to change env name from command line
+
+commit 026db3d87aabf1bd647da34b18ca8834750d6d8f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 00:10:05 2019 -0400
+
+    Remove uint8(image) to float conversion part from DQN class and move it to QFunc definition
+
+commit 0a6c87ba101e25d3268fe03691b9e5c31300c3fa
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 00:10:05 2019 -0400
+
+    Remove uint8(image) to float conversion part from DQN class and move it to QFunc definition
+
+commit 92f5d0644c1c0730d83cd06711b3619e5c0b6848
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 00:08:48 2019 -0400
+
+    Comply with DQN original paper
+    - Use huber loss to clip gradient to [-1, 1]
+    - Use RMSProp optimizer with momentum=0.95, epsilon=0.1, learning rate=0.00025
+    - Update interval is set to 4
+
+commit abb4798a2994aac0c31262eb6d861a8ff727c25b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 24 00:08:48 2019 -0400
+
+    Comply with DQN original paper
+    - Use huber loss to clip gradient to [-1, 1]
+    - Use RMSProp optimizer with momentum=0.95, epsilon=0.1, learning rate=0.00025
+    - Update interval is set to 4
+
+commit 102a2030a0dc5e68792f429699535853f4bc2bd7
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 23 23:31:11 2019 -0400
+
+    Use update_interval when updating policy
+
+commit e9073add054afd8f845c5f35e6b12944135b25b8
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 23 23:31:11 2019 -0400
+
+    Use update_interval when updating policy
+
+commit b397fb46b30bc4de3b57b9b29ec60337372d8f32
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 23 18:39:58 2019 -0400
+
+    Replace float64 with float32 #23
+
+commit 7efbbd96d04c55e034601cbb0f73246bc3cce98f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 23 18:39:58 2019 -0400
+
+    Replace float64 with float32 #23
+
+commit 4b1d024d88a0e0eca7fd9efc5137f20d7341837d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 23 08:57:35 2019 -0400
+
+    Replace float64 with float32 #23
+
+commit 36201af1f665fb6df331281b614464000c2935be
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 23 08:57:35 2019 -0400
+
+    Replace float64 with float32 #23
+
+commit 576802a326c39d98277d18c03b6fc4f250a0b541
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 23 07:30:30 2019 -0400
+
+    Support cpprb.experimental to reduce memory
+
+commit f89e6ccd245d679a0ca0a66e7280f4a1a377b286
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 23 07:30:30 2019 -0400
+
+    Support cpprb.experimental to reduce memory
+
+commit 73631fcbc8cef48147ff24fa4cbdb3e6ea5b6728
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 23 07:04:06 2019 -0400
+
+    Support NoisyNets (not work well yet)
+
+commit 1624529fc4c8274f5902086f93265e88a8962002
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 23 07:04:06 2019 -0400
+
+    Support NoisyNets (not work well yet)
+
+commit 76cc66e6f74a57db6f0a259f82549ece18026042
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 22 22:11:19 2019 -0400
+
+    Set data type of NoisyNet as tf.float64 for consistensy
+
+commit 8afd3ab3cd033f014587bc1c8223f432479b5892
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 22 22:11:19 2019 -0400
+
+    Set data type of NoisyNet as tf.float64 for consistensy
+
+commit 8a5f25e722f25e14c1ec676d927126fdf5741cd6
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 22 07:25:19 2019 -0400
+
+    Replace noise level to 0.3 according to original paper
+
+commit a2ea36cec5bf7b8b07055636ca9c89859f6f9f98
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 22 07:25:19 2019 -0400
+
+    Replace noise level to 0.3 according to original paper
+
+commit 5eb0df07aad08872f76b1f137bd0af6ae0e425fd
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 22 07:21:42 2019 -0400
+
+    Clean codes
+
+commit 6445a42beb718737e45be19364e54443f01627d5
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 22 07:21:42 2019 -0400
+
+    Clean codes
+
+commit 74abe5c08f697a81e3a198bae68fa1878c303b29
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 21 15:05:04 2019 -0400
+
+    Replace tf.keras.layers.Dense with Dense
+
+commit 6f892f83c0cbb4fb263927d8c83297799e140a4a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 21 15:05:04 2019 -0400
+
+    Replace tf.keras.layers.Dense with Dense
+
+commit eccb188c3cc1fb2e067e18072e5dd3460c3aa391
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 20 20:46:40 2019 -0400
+
+    Clean code
+
+commit 19ae9f915885eb95c0bdf578038499f651566ac2
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 20 20:46:40 2019 -0400
+
+    Clean code
+
+commit bf2c832515713c39b15aa4391cfba6980c0e5598
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 20 20:46:29 2019 -0400
+
+    Omit agent specific part from apex.py and move it to apex runner
+
+commit 9169f46f6b094e4123b0ac2000bfdfd7c0de7394
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 20 20:46:29 2019 -0400
+
+    Omit agent specific part from apex.py and move it to apex runner
+
+commit 532116d2e7ca263015ee15362bea2e29de03c69f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 20 20:45:55 2019 -0400
+
+    Fix a bug of specifying action dim in replay buffer
+
+commit cfb34dfdf82edcddceae9ca9b07cbaeed00eb9f3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 20 20:45:55 2019 -0400
+
+    Fix a bug of specifying action dim in replay buffer
+
+commit edc06fba1f85ae010d7e838f4f7d073c8ff42e60
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 20 08:00:01 2019 -0400
+
+    Change exploration noise for each explorer
+
+commit 93c20360fdda4968d9cc01985e3eea6fad01959b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 20 08:00:01 2019 -0400
+
+    Change exploration noise for each explorer
+
+commit 98e2df4efd97de119ce31fa7db784054d755b2e9
+Merge: e248e67 1ad4c42
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 19 16:50:40 2019 -0400
+
+    Merge branch 'gail'
+
+commit 4f6c9e9b0346c18eae8de8e51a107e237e3f7626
+Merge: dcd4415 1bec717
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 19 16:50:40 2019 -0400
+
+    Merge branch 'gail'
+
+commit 1ad4c423719bb7b23242147fe903aa3623cb1d63
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 19 16:50:21 2019 -0400
+
+    Add GAIL to implemented algorithms in README
+
+commit 1bec7174ec1a41b4fbcfff3b1531bbcbd656f317
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 19 16:50:21 2019 -0400
+
+    Add GAIL to implemented algorithms in README
+
+commit 3b3d09ee0879689740272c498fed70af9ee3af35
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 19 10:54:37 2019 -0400
+
+    Show classification accuracy to TensorBoard in GAIL
+
+commit 47830a0183937fe422817096b21844c0084e44fa
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 19 10:54:37 2019 -0400
+
+    Show classification accuracy to TensorBoard in GAIL
+
+commit 3978e5cba628f1a5f440490c098bf143c8ec5f48
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 19 10:54:05 2019 -0400
+
+    Change default parameters for GAIL example
+
+commit 6249dc1283d5c23f05aeda221cd0a2c4677515c1
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 19 10:54:05 2019 -0400
+
+    Change default parameters for GAIL example
+
+commit 711f5d020ad5f27d883beb7e00431ffd45b383c0
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 19 09:39:30 2019 -0400
+
+    Add NoisyDense layer forked from https://github.com/KNakane/tensorflow/blob/master/network/eager_module.py
+
+commit 9b07a1071976b312f981bb53a88e55df35705c1d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 19 09:39:30 2019 -0400
+
+    Add NoisyDense layer forked from https://github.com/KNakane/tensorflow/blob/master/network/eager_module.py
+
+commit 86657eb9aba683f2bad4def6e0cd144c46d55eb8
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 19 09:25:47 2019 -0400
+
+    Add comments
+
+commit e248e67dd8da5e3e832b31aa63f358c3c79ea79c
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 19 08:49:19 2019 -0400
+
+    Update README
+
+commit dcd4415b54beab45e088d9711a96d868ce141846
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 19 08:49:19 2019 -0400
+
+    Update README
+
+commit 196aa5b2164a8503c5b8bccb9395f916701af565
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 19 08:47:00 2019 -0400
+
+    Add VPG agent and related scripts #15
+
+commit 8cf11dfe2cbed5ae48ee73dd4811028ed568a7d3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 15:23:28 2019 -0500
+
+    Add CategoricalActor
+
+commit 4977cee79902ff982850464c6a75c88aa4d8408b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 15:23:08 2019 -0500
+
+    Replace state_dim with state_shape for compatibility to image input
+
+commit 5a432a7ba7785f6fb3365c8799823f2b3d4f248c
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 15:11:39 2019 -0500
+
+    Add tf2rl/algos/models.py to reuse models between different algos
+
+commit 8442bd4cac54cbaca2c38bcfd9b68c04a1ef1c9a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 15:06:10 2019 -0500
+
+    Clean code
+
+commit 29548265cb65e60a5def10cc8341692cf1a9f1d5
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 14:31:34 2019 -0500
+
+    Set default number of filenames to restore as 10
+
+commit 68cda672625c3834338e2b78a34a4a544a4590d5
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 14:31:34 2019 -0500
+
+    Set default number of filenames to restore as 10
+
+commit ab543704bce295c66f7e38fdcde24509d134d63e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 12:46:41 2019 -0500
+
+    Add GAIL agent and related scripts #13
+
+commit 3493cbbd1f568728ddc0da93c39ea6f1b9597c59
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 12:46:41 2019 -0500
+
+    Add GAIL agent and related scripts #13
+
+commit 261db532f12733fe43b7315603ed6ae83e7824be
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 12:45:55 2019 -0500
+
+    Update test for save and restore path
+
+commit e14fb1ce9b1c21184c057683068feee86782f27d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 12:45:55 2019 -0500
+
+    Update test for save and restore path
+
+commit a1876d36e01c88980ebcade8749e1e455f0429cb
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 11:45:26 2019 -0500
+
+    Change filename format for saving test trajectories
+
+commit 61a368ea315e0bd8b38bc893b4f30168c8366627
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 11:45:26 2019 -0500
+
+    Change filename format for saving test trajectories
+
+commit e43b8ab173a2ba2928be07b3c3362cc05ff8a565
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 21:56:54 2019 +0900
+
+    Comply with PEP8
+
+commit b481798d4877f0634f0f8e4a5fff155555388559
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 21:56:54 2019 +0900
+
+    Comply with PEP8
+
+commit 23c8882850a2b42a725864ce0abf09ea5455effa
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 21:22:58 2019 +0900
+
+    Add helps for command line arguments in Trainer and update related README
+
+commit 22006f7138b567ecd90ad306d8ee513ec16a8600
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 21:22:58 2019 +0900
+
+    Add helps for command line arguments in Trainer and update related README
+
+commit 4e891b4f3c9b1a0d83cfb50e403bd0ec58911252
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 20:40:47 2019 +0900
+
+    Enable to save and restore trajectories
+
+commit d9c9c867c08814c91adb476278b159fab964c1f0
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 20:40:47 2019 +0900
+
+    Enable to save and restore trajectories
+
+commit 47d14e7f1cb93e1dafaf416589e55f8212b6f5d5
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 15:22:54 2019 +0900
+
+    Enable to save trajectories for evaluation
+
+commit 5fab0dd017e1182b62352f961f557d8650fc392e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 15:22:54 2019 +0900
+
+    Enable to save trajectories for evaluation
+
+commit 59116ba9c03104713de48bb68a181b020545ef74
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 14:41:06 2019 +0900
+
+    Add Rainbow agent (not implemented yet)
+
+commit 7aaa1264c6063b9f4f221813cfd52a276ceb226b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 14:41:06 2019 +0900
+
+    Add Rainbow agent (not implemented yet)
+
+commit b94f0f2eb491b4c1b442b09d3c043247b48d5c11
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 14:23:54 2019 +0900
+
+    Enable combination of dueling DQN and categorical DQN
+
+commit e36c86982e62d7390221bce2f323f44d802c44a9
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 14:23:54 2019 +0900
+
+    Enable combination of dueling DQN and categorical DQN
+
+commit 3f2a0350bccdc02406f397173b965d353cc339da
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 07:55:06 2019 +0900
+
+    Implement double dqn like update in categorical dqn
+
+commit 4a46cbbfef844597e1df2313d32f3573d5e09094
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 07:55:06 2019 +0900
+
+    Implement double dqn like update in categorical dqn
+
+commit b3bcd88da419008f86c9fe614b2aabc5099f3070
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 07:03:31 2019 +0900
+
+    Enable to save and restore models #12
+
+commit 9c5a6b6dce9d6b7a01bbdb329a4b9c615f404fa5
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 18 07:03:31 2019 +0900
+
+    Enable to save and restore models #12
+
+commit 4010f5efd28b661001197055d66f58d35638de69
+Merge: 29d2985 e44d0a8
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 17 21:54:53 2019 +0900
+
+    Merge branch 'dqn_variants'
+
+commit ae2f6ea12dc51aa404e0531834af655be08ce79d
+Merge: a447e09 5d9f5e1
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 17 21:54:53 2019 +0900
+
+    Merge branch 'dqn_variants'
+
+commit e44d0a896ca84518694d88fab6fc9a1b25ba8cc9
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 17 21:53:23 2019 +0900
+
+    Set version to 0.0.1
+
+commit 5d9f5e19c781e005d53b11fda74d0f8c36f9aa95
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 17 21:53:23 2019 +0900
+
+    Set version to 0.0.1
+
+commit be9dc93fc95d942712c1657abb6eeb931c55c983
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 17 21:51:42 2019 +0900
+
+    Fix a bug of computing TD error for Categorical DQN
+
+commit b846e17e567bc8f5cba2ef09c04c7b7e8c97d8f1
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 17 21:51:42 2019 +0900
+
+    Fix a bug of computing TD error for Categorical DQN
+
+commit 8464b10a3c793a883a068f791c1bd379cf1654b3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 15 22:26:50 2019 +0900
+
+    Improve readability but remain shape bug
+
+commit 175ec6c8c95fdddf6f7ad79341fe8cb69ddef001
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 15 22:26:50 2019 +0900
+
+    Improve readability but remain shape bug
+
+commit bfabb81c10a595dba230d71f8af4299ffc1aa8ba
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 15 21:41:33 2019 +0900
+
+    Implement td error part in Categorical DQN
+
+commit cfa91efec306b63c971de5821e89b6b72eadf724
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 15 21:41:33 2019 +0900
+
+    Implement td error part in Categorical DQN
+
+commit db428421711e3396ad01d99c8142da9578532a52
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 15 18:51:48 2019 +0900
+
+    Convert tensor to numpy in categorical dqn's action
+
+commit 42ca6a0c211e311d99af2d102382f18bf313eb48
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 15 18:51:48 2019 +0900
+
+    Convert tensor to numpy in categorical dqn's action
+
+commit 0aa229b88a5f6413bf24220d66054ad07cddc85f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 15 18:51:14 2019 +0900
+
+    Replace keep_dims with keepdims to remove future warning
+
+commit 6d6436fff1e2aab67f0af6867c088191252095eb
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 15 18:51:14 2019 +0900
+
+    Replace keep_dims with keepdims to remove future warning
+
+commit f5e5b65ef91597a84d7aae7b51b4970a93cc7b84
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 15 18:50:30 2019 +0900
+
+    Enable to use dueling dqn on atari example
+
+commit 00f1e52a64ef510ecbcb2414f493b06383e59c95
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 15 18:50:30 2019 +0900
+
+    Enable to use dueling dqn on atari example
+
+commit 9eddbbedb80575198e61efd2d6cbc5ecc234a85f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 14 09:44:38 2019 +0900
+
+    Fix import error
+
+commit d645bd739ca7465065adcec67d749601231a6bad
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 14 09:44:38 2019 +0900
+
+    Fix import error
+
+commit 472ef0c675ac85ea39d5bb846c0c8715218883ed
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 14 09:41:52 2019 +0900
+
+    Add categorical DQN that does not run yet
+
+commit cce03e330f5d75f30c70b5660f38f4adc692437e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 14 09:41:52 2019 +0900
+
+    Add categorical DQN that does not run yet
+
+commit 0e45eb650265944b4feef7f9b586fdbf57e58d64
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 14 09:38:26 2019 +0900
+
+    Clarify input to Q function class
+
+commit 4033821b985e64186abc712f903f96f3253b89ae
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 14 09:38:26 2019 +0900
+
+    Clarify input to Q function class
+
+commit a197d3df7a794a7ad82c0a29cf8ced1730275dca
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 14 00:51:59 2019 +0900
+
+    Fix a bug of not enabling dueling DQN because of missing argument
+
+commit e2ea279ae63748ddca1c4dfbcc8bde2243273772
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 14 00:51:59 2019 +0900
+
+    Fix a bug of not enabling dueling DQN because of missing argument
+
+commit 29d298567d789e7fad5b72d58956a852827cad83
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 23:26:49 2019 +0900
+
+    Apply changes in parent class
+
+commit a447e091ab7fbc69edf7705a83cac8a1c5713457
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 23:26:49 2019 +0900
+
+    Apply changes in parent class
+
+commit a3d09ccdd48f34e39b3b8830e648cb11b5f1aaa0
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 23:26:38 2019 +0900
+
+    Fix a bug of computing critic loss
+
+commit e81c7345a11daeac270150c6bf7f323feaa15ec4
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 23:26:38 2019 +0900
+
+    Fix a bug of computing critic loss
+
+commit 85b8783fb4c3d7902c4918e20ef4c7fc73e7a649
+Merge: 263397c f43c094
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 23:20:35 2019 +0900
+
+    Merge branch 'master' into bi_res_ddpg
+
+commit 01c4820f10b77c523da272f36e9fea1e77a703c2
+Merge: 277de27 65dc1a5
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 23:20:35 2019 +0900
+
+    Merge branch 'master' into bi_res_ddpg
+
+commit f43c094eadb941cfa2049aef3f13f168bf85df23
+Merge: d937762 7736f4c
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 23:12:58 2019 +0900
+
+    Merge branch 'dqn_variants'
+
+commit 65dc1a5e8dd278c52aea80340a76196463f955d5
+Merge: 2b56d3c 805a4c5
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 23:12:58 2019 +0900
+
+    Merge branch 'dqn_variants'
+
+commit 7736f4c17cd222580feef8a513b71c0e66814076
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 23:07:46 2019 +0900
+
+    Fix a bug of computing target for Double DQN
+
+commit 805a4c5d16eec0104bfbd86a2b602ddb1d8550e7
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 23:07:46 2019 +0900
+
+    Fix a bug of computing target for Double DQN
+
+commit 99d50cde8e8481f6c1b3724e097a146618121b68
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 23:02:19 2019 +0900
+
+    Change hyper-parameters for CartPole-v0
+
+commit e390e5563f2f28098f69afe3e696585c062caf13
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 23:02:19 2019 +0900
+
+    Change hyper-parameters for CartPole-v0
+
+commit 8e97211f80ff688b5fb7e29a81940b97d40c19be
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 21:03:03 2019 +0900
+
+    Clean codes
+
+commit 34a9c371f04a1cf2ff025d2e11623f2f1a59583d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 21:03:03 2019 +0900
+
+    Clean codes
+
+commit 259e6b98f9355c524759e5576301cf952cbee570
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 20:51:10 2019 +0900
+
+    Enable to use double/dueling DQN in atari example
+
+commit 4e6cd3b2c90ad23ebf5a10609bc381c32ea5d4cc
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 20:51:10 2019 +0900
+
+    Enable to use double/dueling DQN in atari example
+
+commit ac2787171c01ac51806fe897424a39bce59190a2
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 20:48:41 2019 +0900
+
+    Add Double DQN agent
+
+commit e376b1f9e1a538f85b5fc15e42dc70a9551bdf1a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 20:48:41 2019 +0900
+
+    Add Double DQN agent
+
+commit c4af3fafd8f5a5ac054e9a64d65716a1e4f0761a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 20:01:25 2019 +0900
+
+    Add Dueling DQN
+
+commit 2beb3e23afdc14e7881318cea1e44ab2182836ee
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 20:01:25 2019 +0900
+
+    Add Dueling DQN
+
+commit a5e8d3c963e3877c7f6e815a1c180f14f8ac481f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 19:58:50 2019 +0900
+
+    Add huber loss
+
+commit dca6f4cccc4234978fbd5df41cc23e3a185a0812
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 19:58:50 2019 +0900
+
+    Add huber loss
+
+commit fa0af91bb40e1a880e5471a30a29160f7f5043ec
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 19:57:30 2019 +0900
+
+    Improve computation speed by 3~4x by replacing numpy operations with TensorFlow operations
+
+commit 5189a75c23a76ba77abb35c9c8c657c1fe6d6de3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 19:57:30 2019 +0900
+
+    Improve computation speed by 3~4x by replacing numpy operations with TensorFlow operations
+
+commit b1af94bd68c675f37d1cca19f8e448f0e03ef672
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 19:53:53 2019 +0900
+
+    Ignore auto-generated dist and build
+
+commit 8e645b324b00d5b5a69e6683a550440d42506cb9
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 19:53:53 2019 +0900
+
+    Ignore auto-generated dist and build
+
+commit d937762a4e941bc3117e86d761ffdea47b347ae2
+Merge: 019f311 1234cfd
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 07:37:15 2019 +0900
+
+    Merge pull request #5 from yamada-github-account/HotFix_missing_init
+    
+    Add __init__.py for searching tf2rl.env
+
+commit 2b56d3c6de7fe3d35ebbfe3a01c1940ee5cb5a54
+Merge: a3a5850 fa1903b
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 07:37:15 2019 +0900
+
+    Merge pull request #5 from yamada-github-account/HotFix_missing_init
+    
+    Add __init__.py for searching tf2rl.env
+
+commit 019f3110367dae61131c04e30d32dcbf31a79260
+Merge: 870de79 bd74d25
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 07:36:55 2019 +0900
+
+    Merge pull request #6 from yamada-github-account/HotFix_typo_README
+    
+    Fix: typo DO'NT -> DON'T
+
+commit a3a5850eddc68403f429f92844e315a9d40c4926
+Merge: e80054d 9902426
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Mon May 13 07:36:55 2019 +0900
+
+    Merge pull request #6 from yamada-github-account/HotFix_typo_README
+    
+    Fix: typo DO'NT -> DON'T
+
+commit bd74d257118d95c36a1fbaac972a21d55e9c23f4
+Author: Yamada <>
+Date:   Sun May 12 14:38:26 2019 +0900
+
+    Fix: typo DO'NT -> DON'T
+
+commit 99024261cce48279352b88eda198f717f751aac4
+Author: Yamada <>
+Date:   Sun May 12 14:38:26 2019 +0900
+
+    Fix: typo DO'NT -> DON'T
+
+commit 1234cfd23d4fb566c927c4ee3c488c3815358216
+Author: Yamada <>
+Date:   Sun May 12 14:18:14 2019 +0900
+
+    Add __init__.py for searching tf2rl.env
+
+commit fa1903b74d006f161023a35b1ad56828b173d02b
+Author: Yamada <>
+Date:   Sun May 12 14:18:14 2019 +0900
+
+    Add __init__.py for searching tf2rl.env
+
+commit 870de7998f5f758f9cdc01a7d281e07d9593fe65
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 11 23:30:02 2019 +0900
+
+    Create LICENSE
+
+commit e80054dd91375d3a1c5793a48233aa31ae0c81d3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 11 23:30:02 2019 +0900
+
+    Create LICENSE
+
+commit a1719c2e9f0bd6eaf15446047bb2b0fc30814260
+Merge: d1a6669 2c4af5f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 10 22:12:52 2019 +0900
+
+    Merge branch 'dqn_atari'
+    
+    # Conflicts:
+    #	tf2rl/algos/td3.py
+
+commit 8f3d04ba2ca3799b71efadde1273ec9669934cc3
+Merge: cf372a9 4271b6e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 10 22:12:52 2019 +0900
+
+    Merge branch 'dqn_atari'
+    
+    # Conflicts:
+    #	tf2rl/algos/td3.py
+
+commit 2c4af5fa54d81b41d710e04f4ad9f5d36614d8d6
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 10 22:05:23 2019 +0900
+
+    Scale image size from 0-255 to 0-1
+
+commit 4271b6e7c6b87cf15f34ca921284890d591bc482
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 10 22:05:23 2019 +0900
+
+    Scale image size from 0-255 to 0-1
+
+commit d1a66694768574627f0046c9626b2c7df9dff90e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 10 22:00:03 2019 +0900
+
+    Fix a bug of computing weighted td error
+
+commit cf372a932d581ec318b66f38113b2b47fa349697
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 10 22:00:03 2019 +0900
+
+    Fix a bug of computing weighted td error
+
+commit 6b131968579ee1a9f82939ea0420ac1a10e30130
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 10 08:45:10 2019 +0900
+
+    Update README.md
+
+commit 6ab665a1b4e5cd6bdc0eb46122cf7724f812ad50
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 10 08:45:10 2019 +0900
+
+    Update README.md
+
+commit 6f12ac0aa4899954ec723bfe9b2f3b2d05825e25
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 9 22:53:43 2019 +0900
+
+    Add SAC agent
+
+commit ba9123d2d8e9ce72f8f8a04ffbff3070daa24730
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 9 22:53:43 2019 +0900
+
+    Add SAC agent
+
+commit 87ac152e07bbd8930d5a04cdb22e7d7784b85410
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 9 22:53:27 2019 +0900
+
+    Clean codes
+
+commit 598d33f02075711bd56b2ba6c51aed97a353c149
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 9 22:53:27 2019 +0900
+
+    Clean codes
+
+commit 1e7b9e824fcbe8f7c5d166d79baaa7dbc9df6d3d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 9 10:36:41 2019 +0900
+
+    Change hyperparameters to equivalent to DeepMind DQN paper
+
+commit 5d6eab0c114799ee9556c1d6baaab316529b048a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 9 10:36:41 2019 +0900
+
+    Change hyperparameters to equivalent to DeepMind DQN paper
+
+commit 94c8c43be8977de5b1106e1d6d30535ffe70a26c
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 9 08:25:55 2019 +0900
+
+    Add DQN-Atari example
+
+commit ca27a021532915f0914696e6cfdeb76640ebc450
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 9 08:25:55 2019 +0900
+
+    Add DQN-Atari example
+
+commit 1730a997bcfe3991be5ba6f8bfe0bfcecfae087a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 9 08:14:34 2019 +0900
+
+    Replace `state_dim` with `state_shape` to allow multi dimensional input as image
+
+commit bd9792e606ac9de37d360791ed0a2ea34e58dacb
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 9 08:14:34 2019 +0900
+
+    Replace `state_dim` with `state_shape` to allow multi dimensional input as image
+
+commit 9defba4fa9aa6f73b7ec65b1a41e799572a8be53
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 9 07:54:17 2019 +0900
+
+    Add gym[atari] to extras_dependencies specified with examples
+
+commit af2d6adc3ad4984c78a5f3324ca51033da2a7a3a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 9 07:54:17 2019 +0900
+
+    Add gym[atari] to extras_dependencies specified with examples
+
+commit 763a2294dbfd2ec7c1bd4536bf71d0d5db4784e1
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 9 07:53:24 2019 +0900
+
+    Allow flexible DQN architecture
+
+commit 46cecff4a718d62566a5942d184f136f19734565
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 9 07:53:24 2019 +0900
+
+    Allow flexible DQN architecture
+
+commit ee92a27705b30d5aac6c2c08c5acb3c0c8235897
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 9 07:52:43 2019 +0900
+
+    Enable to run environment that does not have attribute _max_episode_steps like openai/gym/mujoco
+
+commit 7586e4e612fd6df54ffca122e3a9e6b1770637af
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Thu May 9 07:52:43 2019 +0900
+
+    Enable to run environment that does not have attribute _max_episode_steps like openai/gym/mujoco
+
+commit 6201f20548617781b1959ef64415774e7eb72cfb
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 8 23:06:55 2019 +0900
+
+    Fix test for DQN
+
+commit eb5fa5baf008578e0feac34dcd2512730bc58e96
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 8 23:06:55 2019 +0900
+
+    Fix test for DQN
+
+commit 39f6d6871825990a7f78e16ecdfe56659d03feba
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 8 22:59:09 2019 +0900
+
+    Update setup.py to enable to select CPU version or GPU version of TensorFlow, and related document
+
+commit 4301aaf4f76483a9ab78f460d0937c6753d43b74
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Wed May 8 22:59:09 2019 +0900
+
+    Update setup.py to enable to select CPU version or GPU version of TensorFlow, and related document
+
+commit 757fa61ff9dd289155cfa4fc52c2bdc9517c74af
+Merge: ec53efb 6191952
+Author: ohtake_i <dev.ohtakei@gmail.com>
+Date:   Wed May 8 09:32:06 2019 +0900
+
+    Merge pull request #4 from yamada-github-account/HotFix_README_typo
+    
+    Fix: typo tf2tl -> tf2rl
+
+commit 8ec9bbe387697d6209802b473c822708bf864449
+Merge: 0fca1ee 77270a8
+Author: ohtake_i <dev.ohtakei@gmail.com>
+Date:   Wed May 8 09:32:06 2019 +0900
+
+    Merge pull request #4 from yamada-github-account/HotFix_README_typo
+    
+    Fix: typo tf2tl -> tf2rl
+
+commit 263397c0e23548f185b4b550579c419f5e68550a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 7 22:39:55 2019 +0900
+
+    Update documents regarding with Bi-Res-DDPG
+
+commit 277de27caa112091209fa0963d6fd25bb73cd8df
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 7 22:39:55 2019 +0900
+
+    Update documents regarding with Bi-Res-DDPG
+
+commit f80823ae44669cce3c8fe591e1270e2dcdbc0e85
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 7 22:17:16 2019 +0900
+
+    Add Bi-Res-DDPG agent
+
+commit f04313558d28b6460f0267156473da06f17bfbf3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 7 22:17:16 2019 +0900
+
+    Add Bi-Res-DDPG agent
+
+commit ec53efbb9e46234dd474abede477c0ea1db9172f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 7 17:17:42 2019 +0900
+
+    Support apex-like training for TD3
+
+commit 0fca1ee5343e99c7f14b85df872c7beb963d85d5
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Tue May 7 17:17:42 2019 +0900
+
+    Support apex-like training for TD3
+
+commit 6191952f9d287f48eae88d8d7ee774fd6b0634bd
+Author: Yamada <>
+Date:   Mon May 6 16:41:21 2019 +0900
+
+    Fix: typo tf2tl -> tf2rl
+
+commit 77270a87cb790811a2ad22a866adfb3c230de1be
+Author: Yamada <>
+Date:   Mon May 6 16:41:21 2019 +0900
+
+    Fix: typo tf2tl -> tf2rl
+
+commit e3dad1f78ffec9b389f4d3ccbc7da592190da3da
+Author: ohtake_i <dev.ohtakei@gmail.com>
+Date:   Mon May 6 08:14:34 2019 +0900
+
+    Update README.md
+
+commit 152f2c337b07de70085b6d695a4a6be6401b90fb
+Author: ohtake_i <dev.ohtakei@gmail.com>
+Date:   Mon May 6 08:14:34 2019 +0900
+
+    Update README.md
+
+commit 77cc1d2dbde0010314494dae59cb2fe4835eaa4c
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 15:45:11 2019 +0900
+
+    Clean codes
+
+commit c90f657902a52ecccc61ae1ab566e44db9daa0a2
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 15:45:11 2019 +0900
+
+    Clean codes
+
+commit e7cf8f2f621fb2a796eeaee85bbdf0532082c48f
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 14:34:17 2019 +0900
+
+    Add TD3 agent
+
+commit 4d9491dac8027bc676504e8093ce9226a1e926c3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 14:34:17 2019 +0900
+
+    Add TD3 agent
+
+commit 8629cecf5452079fe1635946a6529cc2af3af891
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 14:30:06 2019 +0900
+
+    Remove duplicated tf.device from DDPG and DQN
+
+commit 206c01da4d1839c30ac4102df51162c6c6b2dd67
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 14:30:06 2019 +0900
+
+    Remove duplicated tf.device from DDPG and DQN
+
+commit d242d9f08f6fbfcfd7acbaa70117dac753dbd369
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 13:43:42 2019 +0900
+
+    Clean codes
+
+commit 1a04718e8d1843a0bbab3e943cb48821283fa31d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 13:43:42 2019 +0900
+
+    Clean codes
+
+commit eb14e5f737bfb932c4f87214c00f24cc0eb20c09
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 13:29:10 2019 +0900
+
+    Comply with PEP8
+
+commit 6b7f88aba47ff624443d423d6f2b05c930433536
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 13:29:10 2019 +0900
+
+    Comply with PEP8
+
+commit 133ff686e8fc67fec6f679e1d1422f1c902df933
+Merge: 1d11300 b4ff9bd
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 12:19:39 2019 +0900
+
+    Merge branch 'apex'
+
+commit fff849c79e88db1757ff52e01f787e05539a8b7d
+Merge: f4ce5ba 775e268
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 12:19:39 2019 +0900
+
+    Merge branch 'apex'
+
+commit b4ff9bd0fe8ba8b86b1f1d682d5cedc5f7748bbc
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 12:17:40 2019 +0900
+
+    Set default gpu id as -1, which means do not use GPU, run only with CPU
+
+commit 775e268efe253be18fddb108cf2bb4252b7b9bf6
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 12:17:40 2019 +0900
+
+    Set default gpu id as -1, which means do not use GPU, run only with CPU
+
+commit d2909505793f2dce6dbb3ed0b3b87511c2e9f027
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 11:29:59 2019 +0900
+
+    Remove replaybuffer from member of Trainer
+
+commit 2c86130fc06446018dbeb6efd986d863c1bb502d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 11:29:59 2019 +0900
+
+    Remove replaybuffer from member of Trainer
+
+commit 9e77cf7b8600ce2bdd4c327566bf0f3917fe42fc
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 11:25:05 2019 +0900
+
+    Apply changes of Trainer to DQN
+
+commit 060051d3c5f651964f186604d2debe0663ec23f1
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 11:25:05 2019 +0900
+
+    Apply changes of Trainer to DQN
+
+commit 28fcbcb154ac3e7a08a4b70ebbab763f3255bf40
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 09:35:51 2019 +0900
+
+    Clean codes
+
+commit a403b373faa8a5b23f8e3dade339f88e4afcf695
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun May 5 09:35:51 2019 +0900
+
+    Clean codes
+
+commit 2538dbe55fc566415db98e534d3b9b9b9b1a3825
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 4 22:21:15 2019 +0900
+
+    Fix flag to use prioritized experience replay
+
+commit 1b56c62f627479dd134f852a0c8bf3e53d424ba2
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 4 22:21:15 2019 +0900
+
+    Fix flag to use prioritized experience replay
+
+commit 8d627608bbb602aaa276dc9de2555105f23c8b42
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 4 22:20:43 2019 +0900
+
+    Fix a bug of adding done as True even when an episode finishes with specified maximum step
+
+commit e7a3c8b2b1971cde7e0a649ef1073c248a7a1ba1
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 4 22:20:43 2019 +0900
+
+    Fix a bug of adding done as True even when an episode finishes with specified maximum step
+
+commit fa53fa741c8278a018e3d8155d8c9d71839c91af
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 4 19:29:33 2019 +0900
+
+    Fix typo and remove unused code
+
+commit 809df214f84efae3cdf513f6d9b07ff7c72d8768
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 4 19:29:33 2019 +0900
+
+    Fix typo and remove unused code
+
+commit 1d11300fe85d9762782bfcb233c4910e3bbb72ff
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 4 19:12:50 2019 +0900
+
+    Fix README.md
+
+commit f4ce5baf94fec83dd37775fdb578b41a23efef83
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 4 19:12:50 2019 +0900
+
+    Fix README.md
+
+commit 68e91f840994c67f12559fc45cbb201644f5d5d9
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 4 19:11:26 2019 +0900
+
+    Enable to change environment from command line and set default batch size as 100 in DDPG
+
+commit 752aa386b434fab6af664cb610c078d71d75de9d
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 4 19:11:26 2019 +0900
+
+    Enable to change environment from command line and set default batch size as 100 in DDPG
+
+commit f52a0fbb511b830a5f9b7a73219d9c7011c5e265
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 4 19:10:58 2019 +0900
+
+    Support the use of prioritized experience replay
+
+commit 38666dd85bdb69a91bbda3a2b84b8778bcddae93
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 4 19:10:58 2019 +0900
+
+    Support the use of prioritized experience replay
+
+commit 19bcab2f699b0c7363f496bc940eac1bc4562d1a
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 4 12:29:44 2019 +0900
+
+    Visualize losses with TensorBoard and clean codes
+
+commit 8f45a807963a837b698ac49f3bf179d25b9fe708
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 4 12:29:44 2019 +0900
+
+    Visualize losses with TensorBoard and clean codes
+
+commit 0ca48ab11a8398c6d75aa8e10639222be5a3b6f2
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 4 12:29:00 2019 +0900
+
+    Periodically update weights of explorers
+
+commit ae1329de947e3ff4ef575b2ff629235a88b05b39
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 4 12:29:00 2019 +0900
+
+    Periodically update weights of explorers
+
+commit 6105389ae11d6274cf0496560b3fdc2fb8798b28
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 4 10:33:21 2019 +0900
+
+    Add ApeX agent
+
+commit 3f9f5ac757f2aafa1da4f03e1d08efd41bc04512
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat May 4 10:33:21 2019 +0900
+
+    Add ApeX agent
+
+commit 9e437c3cf0cd315199256badd91e28240ef93457
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 3 14:50:21 2019 +0900
+
+    Fix a bug of computing target Q values
+
+commit 541592696278a81e7cd32574df603ae275c799ad
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 3 14:50:21 2019 +0900
+
+    Fix a bug of computing target Q values
+
+commit 578ba9e404de54483783bc16933ddc17413b5b34
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 3 14:31:02 2019 +0900
+
+    Use only cpu for DQN test
+
+commit 2c78bf531387e09c7d90276d2e021238b5f1a726
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 3 14:31:02 2019 +0900
+
+    Use only cpu for DQN test
+
+commit b52f2d9d64b67fa0e45a16bbc4ef8d1241d5ac80
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 3 14:30:05 2019 +0900
+
+    Ignore auto-generated egg-info files
+
+commit cabfd5222b12455783e23d4230991326fc23dab3
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 3 14:30:05 2019 +0900
+
+    Ignore auto-generated egg-info files
+
+commit 062561381e4c6d3eb6cab37f6c64acc0ea60cdd2
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 3 14:28:57 2019 +0900
+
+    Set GPU device in agent's base class
+
+commit c001367f1d3cd460f67c695fe6d834c3fa0fe73e
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 3 14:28:57 2019 +0900
+
+    Set GPU device in agent's base class
+
+commit 8652eb230a9a71d0374a4e7d76f9f53ee72de898
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 3 13:26:23 2019 +0900
+
+    Fix a bug of computing TD error
+
+commit 7a8bde33275cdbccca918b45cf70fae9ddd380dc
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 3 13:26:23 2019 +0900
+
+    Fix a bug of computing TD error
+
+commit f69d704cb4ab6479d5c52a6c0582086bbeb3c7f4
+Author: Kei Ohta <Ota.Kei@ds.MitsubishiElectric.co.jp>
+Date:   Fri May 3 12:40:12 2019 +0900
+
+    Follow pep8 coding style
+
+commit d653337d1b8455d62229727f8ec3845ab9af48e1
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri May 3 12:40:12 2019 +0900
+
+    Follow pep8 coding style
+
+commit aa57262e21051a5e3d1f3b44a8a9f85e6910f41a
+Merge: 9800407 46de036
+Author: ohtake_i <dev.ohtakei@gmail.com>
+Date:   Thu May 2 17:26:32 2019 +0900
+
+    Merge pull request #3 from yamada-github-account/HotFix_Installation
+    
+    Fix installation process
+
+commit b4a604ab2ff75c9eb0798cb7c16a375da860ad21
+Merge: 9ce6be5 3fe28c6
+Author: ohtake_i <dev.ohtakei@gmail.com>
+Date:   Thu May 2 17:26:32 2019 +0900
+
+    Merge pull request #3 from yamada-github-account/HotFix_Installation
+    
+    Fix installation process
+
+commit 46de03616b009c5bac006478bb2076e2c265acc9
+Author: Yamada <>
+Date:   Thu May 2 17:21:23 2019 +0900
+
+    Fix: Comply PEP8 codestyle
+    
+    E203 whitespace before ':'
+    E231 missing whitespace after ','
+    E251 unexpected spaces around keyword / parameter equals
+
+commit 3fe28c6d64739b2341a34dcdcbc0a0980471db79
+Author: Yamada <>
+Date:   Thu May 2 17:21:23 2019 +0900
+
+    Fix: Comply PEP8 codestyle
+    
+    E203 whitespace before ':'
+    E231 missing whitespace after ','
+    E251 unexpected spaces around keyword / parameter equals
+
+commit 353dbb6979a9112c70cac55189af3e52e02c47c4
+Author: Yamada <>
+Date:   Sat Apr 27 21:44:07 2019 +0900
+
+    Update Installation and Example in Readme.md
+
+commit 426f949c4809b073cab149a15044c03ed14f1d51
+Author: Yamada <>
+Date:   Sat Apr 27 21:44:07 2019 +0900
+
+    Update Installation and Example in Readme.md
+
+commit f846c86a63b65efc93b578e5704552223ad00f99
+Author: Yamada <>
+Date:   Sat Apr 27 20:25:48 2019 +0900
+
+    Add setup.py and __init__.py for installation
+    
+    Fix #1
+
+commit 9a423152ffcef054db05df1584f58f69a4e949ab
+Author: Yamada <>
+Date:   Sat Apr 27 20:25:48 2019 +0900
+
+    Add setup.py and __init__.py for installation
+    
+    Fix #1
+
+commit 2b9322360c0cf5c7fcf5fb71abfdd9f554a1ce5e
+Author: Yamada <>
+Date:   Sat Apr 27 20:00:44 2019 +0900
+
+    Set Roboschool as default example instead of MuJoCo
+    
+    Since MuJoCo is non free, use Roboschool as default example.
+
+commit 4632f82b8b85fced580ca6625e00bd175e5e68c7
+Author: Yamada <>
+Date:   Sat Apr 27 20:00:44 2019 +0900
+
+    Set Roboschool as default example instead of MuJoCo
+    
+    Since MuJoCo is non free, use Roboschool as default example.
+
+commit 980040731d68c5389581186eb22885e779f95ac1
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Apr 27 10:21:07 2019 +0900
+
+    Add DQN agent
+
+commit 9ce6be55ed138cde252e4936b880aa5f549fa5d8
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Apr 27 10:21:07 2019 +0900
+
+    Add DQN agent
+
+commit 5f4c8c46cd29ef91d1981b00524e66a4e4989963
+Author: Kei Ohta <Ota.Kei@ds.MitsubishiElectric.co.jp>
+Date:   Fri Apr 26 22:14:44 2019 +0900
+
+    Enable to finish evaluation episode based on maximum step set by command line argument
+
+commit 3b839e142949f5c29d49142d02792a1c069bda42
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Apr 26 22:14:44 2019 +0900
+
+    Enable to finish evaluation episode based on maximum step set by command line argument
+
+commit 9e0c62cadf16a1a2d556b1679710a64bf2bdd7e6
+Author: Kei Ohta <Ota.Kei@ds.MitsubishiElectric.co.jp>
+Date:   Fri Apr 26 22:14:09 2019 +0900
+
+    Fix a type error bug that causes not to get in an evaluation loop
+
+commit faff669fa7711a07c0fd141dc68c3422b86bfdac
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Apr 26 22:14:09 2019 +0900
+
+    Fix a type error bug that causes not to get in an evaluation loop
+
+commit 7dd042db6ceafe221ab4c27822c63b177371be05
+Author: Kei Ohta <Ota.Kei@ds.MitsubishiElectric.co.jp>
+Date:   Fri Apr 26 22:12:34 2019 +0900
+
+    Enable to change number of units for DDPG agent
+
+commit 2007c60721f93205ecf11ad407acc1a6c7e70d67
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Fri Apr 26 22:12:34 2019 +0900
+
+    Enable to change number of units for DDPG agent
+
+commit fce5bf042a51fe3f1d8d687d4427df05a9670cd4
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sun Apr 21 17:57:43 2019 +0900
+
+    Add DDPG agent
+
+commit 7525fa8a3c7acf08c9589e44de3527afb0f32e0c
+Author: Kei Ohta <dev.ohtakei@gmail.com>
+Date:   Sat Apr 13 19:30:48 2019 +0900
+
+    Add README.md

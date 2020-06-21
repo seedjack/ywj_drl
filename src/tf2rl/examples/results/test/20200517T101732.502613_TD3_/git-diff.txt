@@ -1,0 +1,1027 @@
+diff --git a/examples/gazebo_env/environment_stage_2.py b/examples/gazebo_env/environment_stage_2.py
+index fdc965d..0614ddd 100644
+--- a/examples/gazebo_env/environment_stage_2.py
++++ b/examples/gazebo_env/environment_stage_2.py
+@@ -1,12 +1,14 @@
+ import rospy
+ import numpy as np
+ import math
++import random
+ from gym import spaces
+ from gym.utils import seeding
+ from math import pi
+ from geometry_msgs.msg import Twist, Point, Pose
+ from sensor_msgs.msg import LaserScan
+ from nav_msgs.msg import Odometry
++from gazebo_msgs.msg import ModelState
+ from std_srvs.srv import Empty
+ # from tf.transformations import euler_from_quaternion, quaternion_from_euler
+ from .respawnGoal import Respawn
+@@ -14,34 +16,35 @@ from .respawnGoal import Respawn
+ 
+ class Env:
+     def __init__(self):
+-        self.goal_x = 1.0
++        self.goal_x = 0.6
+         self.goal_y = 0
+-        self.inflation_rad = 0.25
+         self.heading = 0
++        self.last_dis = 0.
+         self.pre_heading = 0
+-        self.max_v = 0.2
+-        self.max_w = 1.5
+         self.goal_threshold = 0.15
+         self.collision_threshold = 0.17
++        self.inflation_rad = 0.4
+         self.vel_cmd = [0., 0.]
++        self.last_vel_cmd = [0., 0.]
+         self.initGoal = True
+         self.get_goalbox = False
+         self.position = Pose()
+         self.num_beams = 10  # 激光数
+-        low = np.array([-1.5])
+-        high = np.array([1.5])
+-        self.action_space = spaces.Box(low, high, dtype=np.float32)
++        self.start_x = [0., 2., 1., 2.5, -2., -3., 2., -2., 0., 1., -1., -3.5, -1., 3.5]
++        self.start_y = [0., 0., -1., 2.5, 0., 2., -3.5, -2., -1., 1., 2.5, -3.5, 1.3, 1.5]
++        self.vel_v = [0.2, 0.2, 0.2, 0.2, 0.2, 0.1, 0.1, 0.1, 0., 0., 0.]
++        self.vel_w = [-2., -1., 0., 1., 2., -2., 0., 2., -2., 0., 2.]
++        self.action_space = spaces.Discrete(8)
+         low = [0.0] * (self.num_beams)
+-        low.extend([0., -1.5, -2*pi, 0])  #极坐标
+-        # low.extend([0., -1.5, -2.0, -2.0,-2.0, -2.0]) #笛卡尔坐标
++        low.extend([0., -2., -2*pi, 0])
+         high = [3.5] * (self.num_beams)
+-        high.extend([0.2, 1.5, 2*pi, 4])
+-        # high.extend([0.2, 1.5, 2.0, 2.0, 2.0, 2.0])
++        high.extend([0.2, 2., 2*pi, 4])
+         self.observation_space = spaces.Box(np.array(low), np.array(high), dtype=np.float32)
+ 
+         self.pub_cmd_vel = rospy.Publisher('cmd_vel', Twist, queue_size=5)
+         self.sub_odom = rospy.Subscriber('odom', Odometry, self.getOdometry)
+-        self.reset_proxy = rospy.ServiceProxy('gazebo/reset_simulation', Empty)
++        # self.reset_proxy = rospy.ServiceProxy('gazebo/reset_simulation', Empty)
++        self.reset_pose = rospy.Publisher('gazebo/set_model_state', ModelState, queue_size=10)
+         self.unpause_proxy = rospy.ServiceProxy('gazebo/unpause_physics', Empty)
+         self.pause_proxy = rospy.ServiceProxy('gazebo/pause_physics', Empty)
+         self.respawn_goal = Respawn()
+@@ -98,8 +101,7 @@ class Env:
+         if current_distance < self.goal_threshold:
+             self.get_goalbox = True
+ 
+-        state = scan_range + self.vel_cmd + [heading, current_distance] # 极坐标
+-        # state = scan_range + self.vel_cmd + [self.position.x, self.position.y, self.goal_x, self.goal_y] #笛卡尔坐标
++        state = scan_range + self.vel_cmd + [heading, current_distance]
+         return state, done
+ 
+     def setReward(self, state, done):
+@@ -114,26 +116,27 @@ class Env:
+         #
+         # distance_rate = 2 ** (current_distance / self.goal_distance)
+         # reward = ((round(yaw_reward[action] * 5, 2)) * distance_rate)
+-
++        reward = 0
++        reward += 0.1*(self.last_dis - state[-1]) + 0.01*(abs(self.vel_w - state[-3]))
+         if done:
+             rospy.loginfo("Collision!!")
+-            reward = -150
++            reward -= -1
+             self.pub_cmd_vel.publish(Twist())
+ 
+-        elif self.get_goalbox:
++        if self.get_goalbox:
+             rospy.loginfo("Goal!!")
+-            reward = 200
++            reward += 20
+             self.pub_cmd_vel.publish(Twist())
+-            self.goal_x, self.goal_y = self.respawn_goal.getPosition(True, delete=True, test=True)
++            self.goal_x, self.goal_y = self.respawn_goal.getPosition(True, delete=True, test=False)
+             self.goal_distance = self.getGoalDistace()
+             self.get_goalbox = False
+-        else:
+-            reward = (self.goal_threshold-state[-1])/4.0
+ 
++        self.last_dis = state[-1]
++        self.vel_w = state[-3]
+         # # 增加一层膨胀区域，越靠近障碍物负分越多
+         # obstacle_min_range = round(min(state[:10]), 2)
+-        # if obstacle_min_range < self.inflation_rad:
+-        #     reward -= 100*(1 - obstacle_min_range/self.inflation_rad)
++        # if obstacle_min_range < (0.17 + self.inflation_rad):
++        #     reward -= 1 - obstacle_min_range/(0.17 + self.inflation_rad)
+ 
+         return reward
+ 
+@@ -145,8 +148,8 @@ class Env:
+     def step(self, action):
+         self.pre_heading = self.heading
+         vel_cmd = Twist()
+-        vel_cmd.linear.x = 0.15
+-        vel_cmd.angular.z = action
++        vel_cmd.linear.x = self.vel_v[action]
++        vel_cmd.angular.z = self.vel_w[action]
+         self.vel_cmd = [vel_cmd.linear.x, vel_cmd.angular.z]
+         self.pub_cmd_vel.publish(vel_cmd)
+ 
+@@ -160,16 +163,24 @@ class Env:
+         state, done = self.getState(data)
+         reward = self.setReward(state, done)
+ 
+-        # 到达目标或者碰撞到障碍物都reset
+-        return np.array(state), reward, done or reward==200, {}
++        return np.array(state), reward, done, {}
+ 
+     def render(self):
+         pass
+ 
+     def reset(self):
+-        rospy.wait_for_service('gazebo/reset_simulation')
++        # rospy.wait_for_service('gazebo/reset_simulation')
+         try:
+-            self.reset_proxy()
++            # self.reset_proxy()
++            # 实验reset 机器人的位置，其他不变
++            pose_msg = ModelState()
++            pose_msg.model_name = 'turtlebot3_burger'
++            index = random.randrange(0, len(self.start_x))
++            while self.start_x[index] == self.goal_x and self.start_y[index] == self.goal_y:
++                index = random.randrange(0, len(self.start_x))
++            pose_msg.pose.position.x = self.start_x[index]
++            pose_msg.pose.position.y = self.start_y[index]
++            self.reset_pose.publish(pose_msg)
+         except (rospy.ServiceException) as e:
+             print("gazebo/reset_simulation service call failed")
+ 
+@@ -186,9 +197,205 @@ class Env:
+ 
+         self.vel_cmd = [0., 0.]
+         self.goal_distance = self.getGoalDistace()
++        self.last_dis = self.goal_distance
+         state, done = self.getState(data)
+ 
+         return np.array(state)
+ 
+ 
+ 
++
++# import rospy
++# import numpy as np
++# import math
++# from gym import spaces
++# from gym.utils import seeding
++# from math import pi
++# from geometry_msgs.msg import Twist, Point, Pose
++# from sensor_msgs.msg import LaserScan
++# from nav_msgs.msg import Odometry
++# from std_srvs.srv import Empty
++# # from tf.transformations import euler_from_quaternion, quaternion_from_euler
++# from .respawnGoal import Respawn
++#
++#
++# class Env:
++#     def __init__(self):
++#         self.goal_x = 1.0
++#         self.goal_y = 0
++#         self.inflation_rad = 0.25
++#         self.heading = 0
++#         self.pre_heading = 0
++#         self.max_v = 0.2
++#         self.max_w = 1.5
++#         self.goal_threshold = 0.15
++#         self.collision_threshold = 0.17
++#         self.vel_cmd = [0., 0.]
++#         self.initGoal = True
++#         self.get_goalbox = False
++#         self.position = Pose()
++#         self.num_beams = 10  # 激光数
++#         low = np.array([-1.5])
++#         high = np.array([1.5])
++#         self.action_space = spaces.Box(low, high, dtype=np.float32)
++#         low = [0.0] * (self.num_beams)
++#         low.extend([0., -1.5, -2*pi, 0])  #极坐标
++#         # low.extend([0., -1.5, -2.0, -2.0,-2.0, -2.0]) #笛卡尔坐标
++#         high = [3.5] * (self.num_beams)
++#         high.extend([0.2, 1.5, 2*pi, 4])
++#         # high.extend([0.2, 1.5, 2.0, 2.0, 2.0, 2.0])
++#         self.observation_space = spaces.Box(np.array(low), np.array(high), dtype=np.float32)
++#
++#         self.pub_cmd_vel = rospy.Publisher('cmd_vel', Twist, queue_size=5)
++#         self.sub_odom = rospy.Subscriber('odom', Odometry, self.getOdometry)
++#         self.reset_proxy = rospy.ServiceProxy('gazebo/reset_simulation', Empty)
++#         self.unpause_proxy = rospy.ServiceProxy('gazebo/unpause_physics', Empty)
++#         self.pause_proxy = rospy.ServiceProxy('gazebo/pause_physics', Empty)
++#         self.respawn_goal = Respawn()
++#
++#     def euler_from_quaternion(self, orientation_list):
++#         x, y, z, w = orientation_list
++#         r = math.atan2(2 * (w * x + y * z), 1 - 2 * (x * x + y * y))
++#         p = math.asin(2 * (w * y - z * x))
++#         y = math.atan2(2 * (w * z + x * y), 1 - 2 * (z * z + y * y))
++#
++#         return r, p, y
++#
++#
++#     def getGoalDistace(self):
++#         goal_distance = round(math.hypot(self.goal_x - self.position.x, self.goal_y - self.position.y), 2)
++#
++#         return goal_distance
++#
++#     def getOdometry(self, odom):
++#         self.position = odom.pose.pose.position
++#         orientation = odom.pose.pose.orientation
++#         orientation_list = [orientation.x, orientation.y, orientation.z, orientation.w]
++#         _, _, yaw = self.euler_from_quaternion(orientation_list)
++#
++#         goal_angle = math.atan2(self.goal_y - self.position.y, self.goal_x - self.position.x)
++#         heading = goal_angle - yaw
++#         if heading > pi:
++#             heading -= 2 * pi
++#
++#         elif heading < -pi:
++#             heading += 2 * pi
++#
++#         self.heading = round(heading, 2)
++#
++#     def getState(self, scan):
++#         scan_range = []
++#         heading = self.heading
++#         done = False
++#
++#         for i in range(len(scan.ranges)):
++#             if scan.ranges[i] == float('Inf'):
++#                 scan_range.append(3.5)
++#             elif np.isnan(scan.ranges[i]):
++#                 scan_range.append(0)
++#             else:
++#                 scan_range.append(scan.ranges[i])
++#
++#         # obstacle_min_range = round(min(scan_range), 2)
++#         # obstacle_angle = np.argmin(scan_range)
++#         if self.collision_threshold > min(scan_range) > 0:
++#             done = True
++#
++#         current_distance = round(math.hypot(self.goal_x - self.position.x, self.goal_y - self.position.y), 2)
++#         if current_distance < self.goal_threshold:
++#             self.get_goalbox = True
++#
++#         state = scan_range + self.vel_cmd + [heading, current_distance] # 极坐标
++#         # state = scan_range + self.vel_cmd + [self.position.x, self.position.y, self.goal_x, self.goal_y] #笛卡尔坐标
++#         return state, done
++#
++#     def setReward(self, state, done):
++#         # yaw_reward = []
++#         # current_distance = state[-1]
++#         # heading = state[-2]
++#
++#         # for i in range(5):
++#         #     angle = -pi / 4 + heading + (pi / 8 * i) + pi / 2
++#         #     tr = 1 - 4 * math.fabs(0.5 - math.modf(0.25 + 0.5 * angle % (2 * math.pi) / math.pi)[0])
++#         #     yaw_reward.append(tr)
++#         #
++#         # distance_rate = 2 ** (current_distance / self.goal_distance)
++#         # reward = ((round(yaw_reward[action] * 5, 2)) * distance_rate)
++#
++#         if done:
++#             rospy.loginfo("Collision!!")
++#             reward = -150
++#             self.pub_cmd_vel.publish(Twist())
++#
++#         elif self.get_goalbox:
++#             rospy.loginfo("Goal!!")
++#             reward = 200
++#             self.pub_cmd_vel.publish(Twist())
++#             self.goal_x, self.goal_y = self.respawn_goal.getPosition(True, delete=True, test=True)
++#             self.goal_distance = self.getGoalDistace()
++#             self.get_goalbox = False
++#         else:
++#             reward = (self.goal_threshold-state[-1])/4.0
++#
++#         # # 增加一层膨胀区域，越靠近障碍物负分越多
++#         # obstacle_min_range = round(min(state[:10]), 2)
++#         # if obstacle_min_range < self.inflation_rad:
++#         #     reward -= 100*(1 - obstacle_min_range/self.inflation_rad)
++#
++#         return reward
++#
++#     def seed(self, seed=None):
++#         # 产生一个随机化时需要的种子，同时返回一个np_random对象，支持后续的随机化生成操作
++#         self.np_random, seed = seeding.np_random(seed)
++#         return [seed]
++#
++#     def step(self, action):
++#         self.pre_heading = self.heading
++#         vel_cmd = Twist()
++#         vel_cmd.linear.x = 0.15
++#         vel_cmd.angular.z = action
++#         self.vel_cmd = [vel_cmd.linear.x, vel_cmd.angular.z]
++#         self.pub_cmd_vel.publish(vel_cmd)
++#
++#         data = None
++#         while data is None:
++#             try:
++#                 data = rospy.wait_for_message('scan', LaserScan, timeout=5)
++#             except:
++#                 pass
++#
++#         state, done = self.getState(data)
++#         reward = self.setReward(state, done)
++#
++#         # 到达目标或者碰撞到障碍物都reset
++#         return np.array(state), reward, done or reward==200, {}
++#
++#     def render(self):
++#         pass
++#
++#     def reset(self):
++#         rospy.wait_for_service('gazebo/reset_simulation')
++#         try:
++#             self.reset_proxy()
++#         except (rospy.ServiceException) as e:
++#             print("gazebo/reset_simulation service call failed")
++#
++#         data = None
++#         while data is None:
++#             try:
++#                 data = rospy.wait_for_message('scan', LaserScan, timeout=5)
++#             except:
++#                 pass
++#
++#         if self.initGoal:
++#             self.goal_x, self.goal_y = self.respawn_goal.getPosition()
++#             self.initGoal = False
++#
++#         self.vel_cmd = [0., 0.]
++#         self.goal_distance = self.getGoalDistace()
++#         state, done = self.getState(data)
++#
++#         return np.array(state)
++
++
++
+diff --git a/examples/gazebo_env/environment_stage_3.py b/examples/gazebo_env/environment_stage_3.py
+index c8d3b70..7bd7950 100644
+--- a/examples/gazebo_env/environment_stage_3.py
++++ b/examples/gazebo_env/environment_stage_3.py
+@@ -1,3 +1,392 @@
++# import rospy
++# import numpy as np
++# import math
++# from gym import spaces
++# from gym.utils import seeding
++# from math import pi
++# from geometry_msgs.msg import Twist, Point, Pose
++# from sensor_msgs.msg import LaserScan
++# from nav_msgs.msg import Odometry
++# from std_srvs.srv import Empty
++# # from tf.transformations import euler_from_quaternion, quaternion_from_euler
++# from .respawnGoal import Respawn
++#
++#
++# class Env:
++#     def __init__(self):
++#         self.goal_x = 0.6
++#         self.goal_y = 0.
++#         self.start_x = [2., 1., 2.5, -2., -3., 2., -2., 0., 1., -1., -3.5, -1., 3.5]
++#         self.start_y = [0., -1., 2.5, 0., 2., -3.5, -2., -1., 1., 2.5, -3.5, 1.3, 1.5]
++#         self.last_dis = 0.
++#         self.last_w = 0.
++#         self.heading = 0.
++#         self.pre_heading = 0.
++#         self.max_v = 0.2
++#         self.max_w = 2.
++#         self.goal_threshold = 0.15
++#         self.collision_threshold = 0.17
++#         self.inflation_rad = 0.5
++#         self.vel_cmd = 0.
++#         self.initGoal = True
++#         self.get_goalbox = False
++#         self.position = Pose()
++#         self.num_beams = 10  # 激光数
++#         low = np.array([-2.0])
++#         high = np.array([2.0])
++#         self.action_space = spaces.Box(low, high, dtype=np.float32)
++#         low = [0.0] * (self.num_beams)
++#         low.extend([-2.0, -2*pi, 0.])
++#         high = [3.5] * (self.num_beams)
++#         high.extend([2.0, 2*pi, 4.])
++#         self.observation_space = spaces.Box(np.array(low), np.array(high), dtype=np.float32)
++#
++#         self.pub_cmd_vel = rospy.Publisher('cmd_vel', Twist, queue_size=5)
++#         self.sub_odom = rospy.Subscriber('odom', Odometry, self.getOdometry)
++#         self.reset_proxy = rospy.ServiceProxy('gazebo/reset_simulation', Empty)
++#         self.unpause_proxy = rospy.ServiceProxy('gazebo/unpause_physics', Empty)
++#         self.pause_proxy = rospy.ServiceProxy('gazebo/pause_physics', Empty)
++#         self.respawn_goal = Respawn()
++#
++#     def euler_from_quaternion(self, orientation_list):
++#         x, y, z, w = orientation_list
++#         r = math.atan2(2 * (w * x + y * z), 1 - 2 * (x * x + y * y))
++#         p = math.asin(2 * (w * y - z * x))
++#         y = math.atan2(2 * (w * z + x * y), 1 - 2 * (z * z + y * y))
++#
++#         return r, p, y
++#
++#
++#     def getGoalDistace(self):
++#         goal_distance = round(math.hypot(self.goal_x - self.position.x, self.goal_y - self.position.y), 2)
++#
++#         return goal_distance
++#
++#     def getOdometry(self, odom):
++#         self.position = odom.pose.pose.position
++#         orientation = odom.pose.pose.orientation
++#         orientation_list = [orientation.x, orientation.y, orientation.z, orientation.w]
++#         _, _, yaw = self.euler_from_quaternion(orientation_list)
++#
++#         goal_angle = math.atan2(self.goal_y - self.position.y, self.goal_x - self.position.x)
++#         heading = goal_angle - yaw
++#         if heading > pi:
++#             heading -= 2 * pi
++#
++#         elif heading < -pi:
++#             heading += 2 * pi
++#
++#         self.heading = round(heading, 2)
++#
++#     def getState(self, scan):
++#         scan_range = []
++#         heading = self.heading
++#         done = False
++#
++#         for i in range(len(scan.ranges)):
++#             if scan.ranges[i] == float('Inf'):
++#                 scan_range.append(3.5)
++#             elif np.isnan(scan.ranges[i]):
++#                 scan_range.append(0)
++#             else:
++#                 scan_range.append(scan.ranges[i])
++#
++#         # obstacle_min_range = round(min(scan_range), 2)
++#         # obstacle_angle = np.argmin(scan_range)
++#         if self.collision_threshold > min(scan_range) > 0:
++#             done = True
++#
++#         current_distance = round(math.hypot(self.goal_x - self.position.x, self.goal_y - self.position.y), 2)
++#         if current_distance < self.goal_threshold:
++#             self.get_goalbox = True
++#
++#         state = scan_range + [self.vel_cmd] + [heading, current_distance]
++#         return state, done
++#
++#     def setReward(self, state, done):
++#         # yaw_reward = []
++#         # current_distance = state[-1]
++#         # heading = state[-2]
++#
++#         # for i in range(5):
++#         #     angle = -pi / 4 + heading + (pi / 8 * i) + pi / 2
++#         #     tr = 1 - 4 * math.fabs(0.5 - math.modf(0.25 + 0.5 * angle % (2 * math.pi) / math.pi)[0])
++#         #     yaw_reward.append(tr)
++#         #
++#         # distance_rate = 2 ** (current_distance / self.goal_distance)
++#         # reward = ((round(yaw_reward[action] * 5, 2)) * distance_rate)
++#
++#         if done:
++#             rospy.loginfo("Collision!!")
++#             reward = -1
++#             self.pub_cmd_vel.publish(Twist())
++#
++#         elif self.get_goalbox:
++#             rospy.loginfo("Goal!!")
++#             reward = 20
++#             self.pub_cmd_vel.publish(Twist())
++#             self.goal_x, self.goal_y = self.respawn_goal.getPosition(True, delete=True, test=True)
++#             self.goal_distance = self.getGoalDistace()
++#             self.get_goalbox = False
++#         else:
++#             reward = 0.1*(self.last_dis - state[-1]) - 0.01*abs(self.last_w - self.vel_cmd)
++#         self.last_dis = state[-1]
++#         self.last_w = self.vel_cmd
++#
++#         # # 增加一层膨胀区域，越靠近障碍物负分越多
++#         # obstacle_min_range = round(min(state[:10]), 2)
++#         # if obstacle_min_range < self.inflation_rad:
++#         #     reward -= 100*(1 - obstacle_min_range/self.inflation_rad)
++#
++#         return reward
++#
++#     def seed(self, seed=None):
++#         # 产生一个随机化时需要的种子，同时返回一个np_random对象，支持后续的随机化生成操作
++#         self.np_random, seed = seeding.np_random(seed)
++#         return [seed]
++#
++#     def step(self, action):
++#         self.pre_heading = self.heading
++#         vel_cmd = Twist()
++#         vel_cmd.linear.x = 0.2
++#         vel_cmd.angular.z = action
++#         self.vel_cmd = vel_cmd.angular.z[0]
++#         self.pub_cmd_vel.publish(vel_cmd)
++#
++#         data = None
++#         while data is None:
++#             try:
++#                 data = rospy.wait_for_message('scan', LaserScan, timeout=5)
++#             except:
++#                 pass
++#
++#         state, done = self.getState(data)
++#         reward = self.setReward(state, done)
++#
++#         return np.array(state), reward, done, {}
++#
++#     def render(self):
++#         pass
++#
++#     def reset(self):
++#         rospy.wait_for_service('gazebo/reset_simulation')
++#         try:
++#             self.reset_proxy()
++#         except (rospy.ServiceException) as e:
++#             print("gazebo/reset_simulation service call failed")
++#
++#         data = None
++#         while data is None:
++#             try:
++#                 data = rospy.wait_for_message('scan', LaserScan, timeout=5)
++#             except:
++#                 pass
++#
++#         if self.initGoal:
++#             self.goal_x, self.goal_y = self.respawn_goal.getPosition()
++#             self.initGoal = False
++#
++#         self.vel_cmd = 0.
++#         self.goal_distance = self.getGoalDistace()
++#         self.last_dis = self.goal_distance
++#         state, done = self.getState(data)
++#
++#         return np.array(state)
++
++# # 单输出
++# import rospy
++# import numpy as np
++# import math
++# from gym import spaces
++# from gym.utils import seeding
++# from math import pi
++# from geometry_msgs.msg import Twist, Point, Pose
++# from sensor_msgs.msg import LaserScan
++# from nav_msgs.msg import Odometry
++# from std_srvs.srv import Empty
++# # from tf.transformations import euler_from_quaternion, quaternion_from_euler
++# from .respawnGoal import Respawn
++#
++#
++# class Env:
++#     def __init__(self):
++#         self.goal_x = 1.0
++#         self.goal_y = 0
++#         self.inflation_rad = 0.25
++#         self.heading = 0
++#         self.pre_heading = 0
++#         self.max_v = 0.2
++#         self.max_w = 1.5
++#         self.goal_threshold = 0.15
++#         self.collision_threshold = 0.17
++#         self.vel_cmd = 0.
++#         self.initGoal = True
++#         self.get_goalbox = False
++#         self.position = Pose()
++#         self.num_beams = 20  # 激光数
++#         low = np.array([-1.5])
++#         high = np.array([1.5])
++#         self.action_space = spaces.Box(low, high, dtype=np.float32)
++#         low = [0.0] * (self.num_beams)
++#         low.extend([-1.5, -2*pi, 0])  #极坐标
++#         # low.extend([0., -1.5, -2.0, -2.0,-2.0, -2.0]) #笛卡尔坐标
++#         high = [3.5] * (self.num_beams)
++#         high.extend([1.5, 2*pi, 4])
++#         # high.extend([0.2, 1.5, 2.0, 2.0, 2.0, 2.0])
++#         self.observation_space = spaces.Box(np.array(low), np.array(high), dtype=np.float32)
++#
++#         self.pub_cmd_vel = rospy.Publisher('cmd_vel', Twist, queue_size=5)
++#         self.sub_odom = rospy.Subscriber('odom', Odometry, self.getOdometry)
++#         self.reset_proxy = rospy.ServiceProxy('gazebo/reset_simulation', Empty)
++#         self.unpause_proxy = rospy.ServiceProxy('gazebo/unpause_physics', Empty)
++#         self.pause_proxy = rospy.ServiceProxy('gazebo/pause_physics', Empty)
++#         self.respawn_goal = Respawn()
++#
++#     def euler_from_quaternion(self, orientation_list):
++#         x, y, z, w = orientation_list
++#         r = math.atan2(2 * (w * x + y * z), 1 - 2 * (x * x + y * y))
++#         p = math.asin(2 * (w * y - z * x))
++#         y = math.atan2(2 * (w * z + x * y), 1 - 2 * (z * z + y * y))
++#
++#         return r, p, y
++#
++#
++#     def getGoalDistace(self):
++#         goal_distance = round(math.hypot(self.goal_x - self.position.x, self.goal_y - self.position.y), 2)
++#
++#         return goal_distance
++#
++#     def getOdometry(self, odom):
++#         self.position = odom.pose.pose.position
++#         orientation = odom.pose.pose.orientation
++#         orientation_list = [orientation.x, orientation.y, orientation.z, orientation.w]
++#         _, _, yaw = self.euler_from_quaternion(orientation_list)
++#
++#         goal_angle = math.atan2(self.goal_y - self.position.y, self.goal_x - self.position.x)
++#         heading = goal_angle - yaw
++#         if heading > pi:
++#             heading -= 2 * pi
++#
++#         elif heading < -pi:
++#             heading += 2 * pi
++#
++#         self.heading = round(heading, 2)
++#
++#     def getState(self, scan):
++#         scan_range = []
++#         heading = self.heading
++#         done = False
++#
++#         for i in range(len(scan.ranges)):
++#             if scan.ranges[i] == float('Inf'):
++#                 scan_range.append(3.5)
++#             elif np.isnan(scan.ranges[i]):
++#                 scan_range.append(0)
++#             else:
++#                 scan_range.append(scan.ranges[i])
++#
++#         # obstacle_min_range = round(min(scan_range), 2)
++#         # obstacle_angle = np.argmin(scan_range)
++#         if self.collision_threshold > min(scan_range) > 0:
++#             done = True
++#
++#         current_distance = round(math.hypot(self.goal_x - self.position.x, self.goal_y - self.position.y), 2)
++#         if current_distance < self.goal_threshold:
++#             self.get_goalbox = True
++#
++#         state = scan_range + [self.vel_cmd] + [heading, current_distance] # 极坐标
++#         # state = scan_range + self.vel_cmd + [self.position.x, self.position.y, self.goal_x, self.goal_y] #笛卡尔坐标
++#         return state, done
++#
++#     def setReward(self, state, done):
++#         # yaw_reward = []
++#         # current_distance = state[-1]
++#         # heading = state[-2]
++#
++#         # for i in range(5):
++#         #     angle = -pi / 4 + heading + (pi / 8 * i) + pi / 2
++#         #     tr = 1 - 4 * math.fabs(0.5 - math.modf(0.25 + 0.5 * angle % (2 * math.pi) / math.pi)[0])
++#         #     yaw_reward.append(tr)
++#         #
++#         # distance_rate = 2 ** (current_distance / self.goal_distance)
++#         # reward = ((round(yaw_reward[action] * 5, 2)) * distance_rate)
++#
++#         if done:
++#             rospy.loginfo("Collision!!")
++#             reward = -150
++#             self.pub_cmd_vel.publish(Twist())
++#
++#         elif self.get_goalbox:
++#             rospy.loginfo("Goal!!")
++#             reward = 200
++#             self.pub_cmd_vel.publish(Twist())
++#             self.goal_x, self.goal_y = self.respawn_goal.getPosition(True, delete=True, test=False)
++#             self.goal_distance = self.getGoalDistace()
++#             self.get_goalbox = False
++#         else:
++#             reward = (self.goal_threshold-state[-1])/4.0
++#
++#         # # 增加一层膨胀区域，越靠近障碍物负分越多
++#         # obstacle_min_range = round(min(state[:10]), 2)
++#         # if obstacle_min_range < self.inflation_rad:
++#         #     reward -= 100*(1 - obstacle_min_range/self.inflation_rad)
++#
++#         return reward
++#
++#     def seed(self, seed=None):
++#         # 产生一个随机化时需要的种子，同时返回一个np_random对象，支持后续的随机化生成操作
++#         self.np_random, seed = seeding.np_random(seed)
++#         return [seed]
++#
++#     def step(self, action):
++#         self.pre_heading = self.heading
++#         vel_cmd = Twist()
++#         vel_cmd.linear.x = 0.15
++#         vel_cmd.angular.z = action
++#         self.vel_cmd =  vel_cmd.angular.z[0]
++#         self.pub_cmd_vel.publish(vel_cmd)
++#
++#         data = None
++#         while data is None:
++#             try:
++#                 data = rospy.wait_for_message('scan', LaserScan, timeout=5)
++#             except:
++#                 pass
++#
++#         state, done = self.getState(data)
++#         reward = self.setReward(state, done)
++#
++#         # 到达目标或者碰撞到障碍物都reset
++#         return np.array(state), reward, done, {}
++#
++#     def render(self):
++#         pass
++#
++#     def reset(self):
++#         rospy.wait_for_service('gazebo/reset_simulation')
++#         try:
++#             self.reset_proxy()
++#         except (rospy.ServiceException) as e:
++#             print("gazebo/reset_simulation service call failed")
++#
++#         data = None
++#         while data is None:
++#             try:
++#                 data = rospy.wait_for_message('scan', LaserScan, timeout=5)
++#             except:
++#                 pass
++#
++#         if self.initGoal:
++#             self.goal_x, self.goal_y = self.respawn_goal.getPosition()
++#             self.initGoal = False
++#
++#         self.vel_cmd = 0.
++#         self.goal_distance = self.getGoalDistace()
++#         state, done = self.getState(data)
++#
++#         return np.array(state)
++
++# 双输出
+ import rospy
+ import numpy as np
+ import math
+@@ -14,27 +403,29 @@ from .respawnGoal import Respawn
+ 
+ class Env:
+     def __init__(self):
+-        self.goal_x = 0.6
++        self.goal_x = 1.0
+         self.goal_y = 0
++        self.inflation_rad = 0.3  # 包含0.17的自身半径
+         self.heading = 0
+         self.pre_heading = 0
+         self.max_v = 0.2
+         self.max_w = 1.5
+         self.goal_threshold = 0.15
+         self.collision_threshold = 0.17
+-        self.inflation_rad = 0.5
+         self.vel_cmd = [0., 0.]
+         self.initGoal = True
+         self.get_goalbox = False
+         self.position = Pose()
+-        self.num_beams = 10  # 激光数
+-        low = np.array([-2.0])
+-        high = np.array([2.0])
++        self.num_beams = 20  # 激光数
++        low = np.array([-2., -2.])
++        high = np.array([2., 2.])
+         self.action_space = spaces.Box(low, high, dtype=np.float32)
+         low = [0.0] * (self.num_beams)
+-        low.extend([0., -2.0, -2*pi, 0])
++        low.extend([0., -2., -2*pi, 0])  #极坐标
++        # low.extend([0., -1.5, -2.0, -2.0,-2.0, -2.0]) #笛卡尔坐标
+         high = [3.5] * (self.num_beams)
+-        high.extend([0.2, 2.0, 2*pi, 4])
++        high.extend([0.2, 2., 2*pi, 4])
++        # high.extend([0.2, 1.5, 2.0, 2.0, 2.0, 2.0])
+         self.observation_space = spaces.Box(np.array(low), np.array(high), dtype=np.float32)
+ 
+         self.pub_cmd_vel = rospy.Publisher('cmd_vel', Twist, queue_size=5)
+@@ -96,7 +487,8 @@ class Env:
+         if current_distance < self.goal_threshold:
+             self.get_goalbox = True
+ 
+-        state = scan_range + self.vel_cmd + [heading, current_distance]
++        state = scan_range + self.vel_cmd + [heading, current_distance] # 极坐标
++        # state = scan_range + self.vel_cmd + [self.position.x, self.position.y, self.goal_x, self.goal_y] #笛卡尔坐标
+         return state, done
+ 
+     def setReward(self, state, done):
+@@ -121,16 +513,16 @@ class Env:
+             rospy.loginfo("Goal!!")
+             reward = 200
+             self.pub_cmd_vel.publish(Twist())
+-            self.goal_x, self.goal_y = self.respawn_goal.getPosition(True, delete=True, test=True)
++            self.goal_x, self.goal_y = self.respawn_goal.getPosition(True, delete=True, test=False)
+             self.goal_distance = self.getGoalDistace()
+             self.get_goalbox = False
+         else:
+-            reward = (self.goal_threshold-state[-1])/4.0
++            reward = (self.goal_threshold-state[-1]) * 0.1
+ 
+-        # # 增加一层膨胀区域，越靠近障碍物负分越多
+-        # obstacle_min_range = round(min(state[:10]), 2)
+-        # if obstacle_min_range < self.inflation_rad:
+-        #     reward -= 100*(1 - obstacle_min_range/self.inflation_rad)
++        # 增加一层膨胀区域，越靠近障碍物负分越多
++        obstacle_min_range = round(min(state[:self.num_beams]), 2)
++        if obstacle_min_range < self.inflation_rad:
++            reward -= 2.5*(1 - obstacle_min_range/self.inflation_rad)
+ 
+         return reward
+ 
+@@ -142,8 +534,8 @@ class Env:
+     def step(self, action):
+         self.pre_heading = self.heading
+         vel_cmd = Twist()
+-        vel_cmd.linear.x = 0.15
+-        vel_cmd.angular.z = action
++        vel_cmd.linear.x = (action[0] + 2.0) / 20.0
++        vel_cmd.angular.z = action[1]
+         self.vel_cmd = [vel_cmd.linear.x, vel_cmd.angular.z]
+         self.pub_cmd_vel.publish(vel_cmd)
+ 
+@@ -157,6 +549,7 @@ class Env:
+         state, done = self.getState(data)
+         reward = self.setReward(state, done)
+ 
++        # 到达目标或者碰撞到障碍物都reset
+         return np.array(state), reward, done, {}
+ 
+     def render(self):
+diff --git a/examples/gazebo_env/respawnGoal.py b/examples/gazebo_env/respawnGoal.py
+index ebb1b18..d10ffc2 100644
+--- a/examples/gazebo_env/respawnGoal.py
++++ b/examples/gazebo_env/respawnGoal.py
+@@ -10,13 +10,13 @@ from geometry_msgs.msg import Pose
+ class Respawn():
+     def __init__(self):
+         self.modelPath = os.path.dirname(os.path.realpath(__file__))
+-        self.modelPath = '/home/ywj/test_ws/src/turtlebot3_simulations/turtlebot3_gazebo/models/turtlebot3_square/goal_box/model.sdf'
++        self.modelPath = '/home/ywj/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/models/turtlebot3_square/goal_box/model.sdf'
+         self.f = open(self.modelPath, 'r')
+         self.model = self.f.read()
+         # self.stage = rospy.get_param('/stage_number')
+-        self.stage = 1
++        self.stage = 4
+         self.goal_position = Pose()
+-        self.init_goal_x = 0
++        self.init_goal_x = 1.5
+         self.init_goal_y = 0.0
+         self.goal_position.position.x = self.init_goal_x
+         self.goal_position.position.y = self.init_goal_y
+@@ -123,11 +123,15 @@ class Respawn():
+ 
+         else:
+             while position_check:
+-                goal_x_list = [0.6, 1.9, 0.5, 0.2, -0.8, -1, -1.9, 0.5, 2, 0.5, 0, -0.1, -2]
+-                goal_y_list = [0, -0.5, -1.9, 1.5, -0.9, 1, 1.1, -1.5, 1.5, 1.8, -1, 1.6, -0.8]
++                # train_env_1
++                # goal_x_list = [0, 1, 1, -1, -1, -1, -2.5, 0., 2.5, 2.5, -1.5, 2., 0.5, 1.0, -1.0, 1.5, -1.5]
++                # goal_y_list = [2., 1, -1, -1, 1, 1, -1.5, 3.5, 3.5, -1.5, 2, 2., 0.5, 3.5,  3.5, 4.5, 4.5]
+ 
+-                self.index = random.randrange(0, 13)
+-                print(self.index, self.last_index)
++                # train_env_2
++                goal_x_list = [2., 1., 2.5, -2., -3., 2., -2., 0., 1., -1., -3.5, -1., 3.5]
++                goal_y_list = [0., -1., 2.5, 0., 2., -3.5, -2., -1., 1., 2.5, -3.5, 1.3, 1.5]
++
++                self.index = random.randrange(0, len(goal_x_list))
+                 if self.last_index == self.index:
+                     position_check = True
+                 else:
+diff --git a/examples/run_sac_discrete.py b/examples/run_sac_discrete.py
+index 0cd87e7..7e208e0 100644
+--- a/examples/run_sac_discrete.py
++++ b/examples/run_sac_discrete.py
+@@ -1,26 +1,38 @@
+-import sys
+-sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
+-import gym
+-
++# import sys
++# sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
++# import gym
++import rospy
++from gazebo_env.environment_stage_2 import Env
+ from tf2rl.algos.sac_discrete import SACDiscrete
+ from tf2rl.experiments.trainer import Trainer
+ 
+-
++Load = False
+ if __name__ == '__main__':
+     parser = Trainer.get_argument()
+     parser = SACDiscrete.get_argument(parser)
+-    parser.set_defaults(test_interval=2000)
+-    parser.add_argument('--env-name', type=str,
+-                        default="2dCarWorld1-v1")
+-    parser.set_defaults(max_steps=2e3)
++    # parser.set_defaults(test_interval=2000)
++    # parser.add_argument('--env-name', type=str,
++    #                     default="2dCarWorld1-v1")
++    parser.set_defaults(max_steps=5e5)
+     parser.set_defaults(gpu=-1)
+-    parser.set_defaults(n_warmup=500)
+-    parser.set_defaults(batch_size=32)
+-    parser.set_defaults(memory_capacity=int(1e4))
++    parser.set_defaults(n_warmup=100)
++    parser.set_defaults(batch_size=100)
++    # parser.set_defaults(
++    #     model_dir='/home/ywj/ywj_ws/src/tf2rl/examples/results/sac_train_evn/20200510T183903.408701_SAC_discrete_')
++    if Load:
++        parser.set_defaults(test_episodes=100)
++        parser.set_defaults(episode_max_steps=int(1e4))
++        parser.set_defaults(model_dir='/home/ywj/ywj_ws/src/tf2rl/examples/results/sac_train_evn/20200514T094854.196850_SAC_discrete_')
++        # parser.set_defaults(model_dir='/home/ywj/gym_ws/tf2rl/examples/results/test_500k_td3/20200311T005309.078819_TD3_')
++        parser.set_defaults(show_test_progress=True)
++        parser.set_defaults(save_model_interval=int(1e10))
+     args = parser.parse_args()
+ 
+-    env = gym.make(args.env_name)
+-    test_env = gym.make(args.env_name)
++    rospy.init_node('turtlebot3_td3_stage_1')
++    env = Env()
++    test_env = Env()
++    # env = gym.make(args.env_name)
++    # test_env = gym.make(args.env_name)
+     policy = SACDiscrete(
+         state_shape=env.observation_space.shape,
+         action_dim=env.action_space.n,
+diff --git a/examples/run_td3.py b/examples/run_td3.py
+index 9a31e24..0e1bacb 100644
+--- a/examples/run_td3.py
++++ b/examples/run_td3.py
+@@ -7,21 +7,22 @@ from tf2rl.algos.td3 import TD3
+ from tf2rl.experiments.trainer import Trainer
+ 
+ 
+-Load = True
++Load = False
+ if __name__ == '__main__':
+     parser = Trainer.get_argument()
+     parser = TD3.get_argument(parser)
+     # parser.add_argument('--env-name', type=str, default="2dCarWorld2-v1")
+     parser.set_defaults(batch_size=100)
+     parser.set_defaults(n_warmup=10000) # 重新训练的话要改回 10000
+-    # #  restore 静态训练的结果去训练动态，看看效果如何
+-    # parser.set_defaults(
+-    #     model_dir='/home/ywj/gym_ws/tf2rl/examples/results/turtlebot_stage_1/20200109T133144.120102_TD3_')
++    parser.set_defaults(max_steps=5e5)
++    #  restore 静态训练的结果去训练动态，看看效果如何
++    parser.set_defaults(
++        model_dir='/home/ywj/ywj_ws/src/tf2rl/examples/results/sac_train_evn/20200515T145317.384540_TD3_')
+ 
+     if Load:
+         parser.set_defaults(test_episodes=100)
+         parser.set_defaults(episode_max_steps=int(1e4))
+-        parser.set_defaults(model_dir='/home/ywj/gym_ws/tf2rl/examples/results/turtlebot_stage_2/add_inflation_layer2/20200225T192120.797493_TD3_')
++        parser.set_defaults(model_dir='/home/ywj/ywj_ws/src/tf2rl/examples/results/test/20200516T003738.612797_TD3_')
+         # parser.set_defaults(model_dir='/home/ywj/gym_ws/tf2rl/examples/results/test_500k_td3/20200311T005309.078819_TD3_')
+         parser.set_defaults(show_test_progress=True)
+         parser.set_defaults(save_model_interval=int(1e10))
+@@ -29,7 +30,7 @@ if __name__ == '__main__':
+ 
+     # env = gym.make(args.env_name)
+     # test_env = gym.make(args.env_name)
+-    rospy.init_node('turtlebot3_dqn_stage_3_tensorflow')
++    rospy.init_node('turtlebot3_td3_stage_1')
+     env = Env()
+     test_env = Env()
+ 
+@@ -40,6 +41,7 @@ if __name__ == '__main__':
+         memory_capacity=args.memory_capacity,
+         max_action=env.action_space.high[0],
+         batch_size=args.batch_size,
++        actor_units=[400, 300],
+         n_warmup=args.n_warmup)
+     trainer = Trainer(policy, env, args, test_env=test_env)
+     if Load:
+diff --git a/tf2rl/algos/ddpg.py b/tf2rl/algos/ddpg.py
+index c027356..a843f1f 100755
+--- a/tf2rl/algos/ddpg.py
++++ b/tf2rl/algos/ddpg.py
+@@ -24,6 +24,7 @@ class Actor(tf.keras.Model):
+         features = tf.nn.relu(self.l1(inputs))
+         features = tf.nn.relu(self.l2(features))
+         features = self.l3(features)
++
+         action = self.max_action * tf.nn.tanh(features)
+         return action
+ 
+diff --git a/tf2rl/experiments/trainer.py b/tf2rl/experiments/trainer.py
+index bbe582e..fbfdab6 100755
+--- a/tf2rl/experiments/trainer.py
++++ b/tf2rl/experiments/trainer.py
+@@ -44,7 +44,7 @@ class Trainer:
+                 suffix="{}_{}".format(self._policy.policy_name, args.dir_suffix))
+         else:
+             self._output_dir = prepare_output_dir(
+-                args=args, user_specified_dir="./results",
++                args=args, user_specified_dir="./results/sac_train_evn",
+                 suffix="{}_{}".format(self._policy.policy_name, args.dir_suffix))
+         self.logger = initialize_logger(
+             logging_level=logging.getLevelName(args.logging_level),
+@@ -221,7 +221,7 @@ class Trainer:
+         parser.add_argument('--dir-suffix', type=str, default='',
+                             help='Suffix for directory that contains results')
+         # test settings
+-        parser.add_argument('--test-interval', type=int, default=int(1e4),
++        parser.add_argument('--test-interval', type=int, default=int(1e6),
+                             help='Interval to evaluate trained model')
+         parser.add_argument('--show-test-progress', action='store_true',
+                             help='Call `render` in evaluation process')
