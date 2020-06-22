@@ -30,7 +30,7 @@ if __name__ == '__main__':
 
     # env = gym.make(args.env_name)
     # test_env = gym.make(args.env_name)
-    rospy.init_node('turtlebot3_td3_stage_1')
+    rospy.init_node('turtlebot3_td3_stage_3')
     env = Env()
     test_env = Env()
 
