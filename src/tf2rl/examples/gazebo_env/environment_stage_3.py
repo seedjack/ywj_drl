@@ -27,6 +27,7 @@ class Env:
         self.initGoal = True
         self.get_goalbox = False
         self.position = Pose()
+        self.test = True
         self.num_beams = 20  # 激光数
         low = np.array([-2., -2.])
         high = np.array([2., 2.])
@@ -113,7 +114,7 @@ class Env:
             rospy.loginfo("Goal!!")
             reward = 200
             self.pub_cmd_vel.publish(Twist())
-            self.goal_x, self.goal_y = self.respawn_goal.getPosition(True, delete=True, test=True)
+            self.goal_x, self.goal_y = self.respawn_goal.getPosition(True, delete=True, test=self.test)
             self.goal_distance = self.getGoalDistace()
             self.get_goalbox = False
         else:
